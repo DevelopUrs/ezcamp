@@ -1,5 +1,7 @@
 # EZCamp
 
+[Live demo](https://ezcamp.herokuapp.com/)
+
 # Catchy headline / cool graphic
 
 # Who are the contributors (names should link to their github or portfolio page)
@@ -71,8 +73,18 @@ In the project directory, you can run:
 
 ### `npm start`
 
+in order to connect to the server.
+
+`cd client`
+
+In the client directory, you can run:
+
+### `npm start`
+
+in order to connect to the client.
+
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
