@@ -1,7 +1,9 @@
 const express = require('express');
 // const { reviews, reviewsMeta, helpful, report, loaderio } = require('./controllers/index.js');
+const controllers = require('./controllers/index');
 const router = express.Router();
 
+router.get('/api', controllers.get.get);
 // router.get('/reviews', reviews.getReviews);
 // router.get('/reviews/meta', reviewsMeta.getMetadata);
 // router.post('/reviews', reviews.postReview);

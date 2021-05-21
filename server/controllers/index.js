@@ -1,3 +1,4 @@
+exports.get = require('./get.js');
 // exports.reviews = require('./reviews.js');
 // exports.reviewsMeta = require('./reviewsMeta.js');
 // exports.helpful = require('./helpful.js');
