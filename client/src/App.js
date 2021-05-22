@@ -1,6 +1,8 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Join from './components/Join';
+import Chat from './components/Chat';
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -12,12 +14,13 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <Router>
+      <Route path='/' exact component={Join} />
+      <Route path='/chat' exact component={Chat} />
+      <header>
         <p>{!data ? "Loading..." : data}</p>
       </header>
-    </div>
+    </Router>
   );
 }
 
