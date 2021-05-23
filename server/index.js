@@ -5,7 +5,8 @@ const router = require('./routes.js');
 const PORT = process.env.PORT || 3001;
 
 // Have Node serve the files for our built React app
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+// app.use(express.static(path.resolve(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '../client/dist/')));
 app.use(express.json());
 app.use('/', router);
 
