@@ -1,5 +1,5 @@
 import React from "react";
-import MenuList from './Components/MenuList/MenuList.jsx';
+import Sidebar from './Components/Sidebar/Sidebar.jsx';
 // import logo from "./logo.svg";
 // import "./App.css";
 
@@ -18,7 +18,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>{!data ? "Loading..." : data}</p>
       </header> */}
-      <MenuList />
+      <Sidebar />
     </div>
   );
 }

@@ -21,7 +21,7 @@ import { FaCampground } from 'react-icons/fa';
 import FormatAlignCenterIcon from '@material-ui/icons/FormatAlignCenter';
 import ChatIcon from '@material-ui/icons/Chat';
 import styled from 'styled-components';
-import Test from '../Dashboard/test.jsx';
+import Dashboard from '../Dashboard/Dashboard.jsx';
 
 const drawerWidth = 240;
 
@@ -162,7 +162,8 @@ export default function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Test />
+        <h1></h1>
+        <Dashboard />
       </main>
     </div>
   );
