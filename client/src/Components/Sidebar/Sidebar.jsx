@@ -121,7 +121,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Camp Name
+            ADVENTURE KIDS CAMP
           </Typography>
           <Btn><Button>Log Out</Button></Btn>
 
