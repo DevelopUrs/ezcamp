@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 // const socketio = require('socket.io');
 const http = require('http');
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users.js');
@@ -13,6 +14,9 @@ const io = require("socket.io")(server, {
   }
 });
 const router = require('./routes.js');
+
+app.use(cors());
+app.use(router);
 const PORT = process.env.PORT || 3001;
 
 io.on('connection', (socket) => {
@@ -21,9 +25,9 @@ io.on('connection', (socket) => {
     // error handling
     if (error) return callback(error);
     // tell the user that they have joined the chat
-    socket.emit('message', { user: 'admin', text: `${user.name}, welcome to the ${user.room}` })
+    // socket.emit('message', { user: 'admin', text: `${user.name}, welcome to the ${user.room}` })
     // tell all other users in the room that the user has joined
-    socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` })
+    socket.broadcast.to(user.room).emit('message', { user: '', text: `${user.name} has joined!` })
 
     socket.join(user.room);
 
@@ -38,14 +42,18 @@ io.on('connection', (socket) => {
   })
 
   socket.on('disconnect', () => {
-    console.log('User had left.');
+    const user = removeUser(socket.id);
+    if (user) {
+      io.to(user.room).emit('message', { user: '', text: `${user.name} has left.` });
+      io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
+    }
   })
 })
 
 // Have Node serve the files for our built React app
 // app.use(express.static(path.resolve(__dirname, '../client/build')));
 // app.use(express.json());
-app.use(router);
+
 
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)
