@@ -16,8 +16,13 @@ const PORT = process.env.PORT || 3001;
 
 io.on('connection', (socket) => {
   console.log('new connection!');
-  socket.on('join', ({ name, room }) => {
+  socket.on('join', ({ name, room }, callback) => {
     console.log(name, room);
+    // error handling
+    const error = true;
+    if (error) {
+      callback({ error: 'error' });
+    }
   })
   socket.on('disconnect', () => {
     console.log('User had left.');
