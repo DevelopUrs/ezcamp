@@ -100,6 +100,10 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
+  const handleViewChange = (e) => {
+    console.log(e.target.innerHTML);
+  };
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -145,7 +149,7 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <List>
           {['My Profile', 'Info About Camp', 'Forms', 'Chat'].map((text, index) => (
-            <ListItem button key={text}>
+            <ListItem button id={text} key={text} onClick={handleViewChange}>
               <ListItemIcon>{index === 0 ? <HomeIcon style={{color: '#ff9f1c'}}/>
                 : index === 1 ? <FaCampground />
                 : index === 2 ? <FormatAlignCenterIcon />
