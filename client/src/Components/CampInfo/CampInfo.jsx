@@ -2,7 +2,7 @@ import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
 import { Header, Text } from './CampInfo.styles.jsx';
-import Profile from '../ProfileCard/ProfileCard.jsx';
+import Profile from '../ProfileCard/editProfileCard.jsx';
 
 const CampInfo = () => {
   return (

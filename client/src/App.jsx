@@ -1,5 +1,6 @@
 import React from "react";
-import Sidebar from './Components/Sidebar/Sidebar.jsx';
+import Parent from './Components/Profiles/Parent.jsx';
+import Counselor from './Components/Profiles/Counselor.jsx';
 // import logo from "./logo.svg";
 // import "./App.css";
 
@@ -18,7 +19,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>{!data ? "Loading..." : data}</p>
       </header> */}
-      <Sidebar />
+      {/* <Parent /> */}
+      <Counselor />
     </div>
   );
 }
