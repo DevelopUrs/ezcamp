@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -22,6 +22,7 @@ import { GiThreeFriends } from 'react-icons/gi';
 import { BsCalendar } from 'react-icons/bs';
 import ChatIcon from '@material-ui/icons/Chat';
 import styled from 'styled-components';
+import { DashboardContext } from '../../Contexts/DashboardContext.jsx';
 import Dashboard from '../Dashboard/CounselorDashboard.jsx';
 
 const drawerWidth = 240;
@@ -92,6 +93,8 @@ export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const { setView } = useContext(DashboardContext);
+
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -102,7 +105,7 @@ export default function PersistentDrawerLeft() {
   };
 
   const handleViewChange = (e) => {
-    console.log(e.target.innerHTML);
+    setView(e.target.innerHTML);
   };
 
   return (

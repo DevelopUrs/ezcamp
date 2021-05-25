@@ -1,6 +1,8 @@
 import React from "react";
+import DashboardContextProvider from './Contexts/DashboardContext.jsx';
 import Parent from './Components/Profiles/Parent.jsx';
 import Counselor from './Components/Profiles/Counselor.jsx';
+import Camper from './Components/Profiles/Camper.jsx';
 // import logo from "./logo.svg";
 // import "./App.css";
 
@@ -19,8 +21,11 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>{!data ? "Loading..." : data}</p>
       </header> */}
-      {/* <Parent /> */}
-      <Counselor />
+      <DashboardContextProvider>
+        {/* <Parent /> */}
+        {/* <Counselor /> */}
+        <Camper />
+      </DashboardContextProvider>
     </div>
   );
 }
