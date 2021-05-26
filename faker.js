@@ -140,36 +140,38 @@ const addData = [
       .then(() => console.log('added calendars'))
       .catch((err) => console.log(err));
   }
-].forEach((func) => func());
+]
+.forEach((func) => func());
 
-// const checkData = [
-//   () => {
-//     Parents.estimatedDocumentCount()
-//       .then((data) => console.log('parents', data))
-//       .catch((err) => console.log(err));
-//   }, () => {
-//     Children.estimatedDocumentCount()
-//       .then((data) => console.log('children', data))
-//       .catch((err) => console.log(err));
-//   }, () => {
-//     Forms.estimatedDocumentCount()
-//       .then((data) => console.log('forms', data))
-//       .catch((err) => console.log(err));
-//   }, () => {
-//     Counselors.estimatedDocumentCount()
-//       .then((data) => console.log('counselors', data))
-//       .catch((err) => console.log(err));
-//   }, () => {
-//     Passwords.estimatedDocumentCount()
-//       .then((data) => console.log('passwords', data))
-//       .catch((err) => console.log(err));
-//   }, () => {
-//     Camps.estimatedDocumentCount()
-//       .then((data) => console.log('camps', data))
-//       .catch((err) => console.log(err));
-//   }, () => {
-//     Calendars.estimatedDocumentCount()
-//       .then((data) => console.log('calendars', data))
-//       .catch((err) => console.log(err));
-//   }
-// ].forEach((func) => func());
+const checkData = [
+  () => {
+    Parents.estimatedDocumentCount()
+      .then((data) => console.log('parents', data))
+      .catch((err) => console.log(err));
+  }, () => {
+    Children.estimatedDocumentCount()
+      .then((data) => console.log('children', data))
+      .catch((err) => console.log(err));
+  }, () => {
+    Forms.estimatedDocumentCount()
+      .then((data) => console.log('forms', data))
+      .catch((err) => console.log(err));
+  }, () => {
+    Counselors.estimatedDocumentCount()
+      .then((data) => console.log('counselors', data))
+      .catch((err) => console.log(err));
+  }, () => {
+    Passwords.estimatedDocumentCount()
+      .then((data) => console.log('passwords', data))
+      .catch((err) => console.log(err));
+  }, () => {
+    Camps.estimatedDocumentCount()
+      .then((data) => console.log('camps', data))
+      .catch((err) => console.log(err));
+  }, () => {
+    Calendars.estimatedDocumentCount()
+      .then((data) => console.log('calendars', data))
+      .catch((err) => console.log(err));
+  }
+]
+// .forEach((func) => func());
