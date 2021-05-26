@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Update from "@material-ui/icons/Update";
 import Accessibility from "@material-ui/icons/Accessibility";
-import Cloud from "@material-ui/icons/Cloud";
+// import Cloud from "@material-ui/icons/Cloud";
 import GridItem from "../DashboardResources/components/Grid/GridItem.js";
 import GridContainer from "../DashboardResources/components/Grid/GridContainer.js";
-import Tasks from "../DashboardResources/components/Tasks/Tasks.js";
-import CustomTabs from "../DashboardResources/components/CustomTabs/CustomTabs.js";
+// import Tasks from "../DashboardResources/components/Tasks/Tasks.js";
+// import CustomTabs from "../DashboardResources/components/CustomTabs/CustomTabs.js";
 import Card from "../DashboardResources/components/Card/Card.js";
 import CardHeader from "../DashboardResources/components/Card/CardHeader.js";
 import CardIcon from "../DashboardResources/components/Card/CardIcon.js";
@@ -14,7 +14,7 @@ import CardFooter from "../DashboardResources/components/Card/CardFooter.js";
 import Table from "../DashboardResources/components/Table/Table.js";
 import CardBody from "../DashboardResources/components/Card/CardBody.js";
 
-import { bugs, website, server } from "../DashboardResources/variables/general.js";
+// import { bugs, website, server } from "../DashboardResources/variables/general.js";
 
 import styles from "../DashboardResources/assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
