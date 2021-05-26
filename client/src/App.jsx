@@ -1,8 +1,11 @@
 import React from "react";
 import DashboardContextProvider from './Contexts/DashboardContext.jsx';
+import ModalContextProvider from './Contexts/ModalContext.jsx';
 import Parent from './Components/Profiles/Parent.jsx';
 import Counselor from './Components/Profiles/Counselor.jsx';
 import Camper from './Components/Profiles/Camper.jsx';
+import CampAbout from './Components/Modals/CampAbout.jsx';
+import EditProfile from './Components/Modals/ProfileEdit.jsx';
 // import logo from "./logo.svg";
 // import "./App.css";
 
@@ -22,9 +25,13 @@ function App() {
         <p>{!data ? "Loading..." : data}</p>
       </header> */}
       <DashboardContextProvider>
-        {/* <Parent /> */}
-        {/* <Counselor /> */}
-        <Camper />
+        <ModalContextProvider>
+          {/* <Parent /> */}
+          <Counselor />
+          <CampAbout />
+          <EditProfile />
+        </ModalContextProvider>
+        {/* <Camper /> */}
       </DashboardContextProvider>
     </div>
   );
