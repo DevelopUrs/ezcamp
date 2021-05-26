@@ -26,9 +26,9 @@ function App() {
         <p>{!data ? "Loading..." : data}</p>
       </header> */}
       <DashboardContextProvider>
-        {landingPage === 'SignIn' ? <SignIn/> : <SignUp/>}
+        {/* landingPage === 'SignIn' ? <SignIn/> : <SignUp/> */}
         {/* <Parent /> */}
-        {/* <Counselor /> */}
+        <Counselor />
         {/* <Camper /> */}
       </DashboardContextProvider>
     </div>
