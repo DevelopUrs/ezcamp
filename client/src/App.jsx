@@ -6,17 +6,22 @@ import Counselor from './Components/Profiles/Counselor.jsx';
 import Camper from './Components/Profiles/Camper.jsx';
 import CampAbout from './Components/Modals/CampAbout.jsx';
 import EditProfile from './Components/Modals/ProfileEdit.jsx';
+import SignIn from './Components/Sign/SignIn.jsx';
+import SignUp from './Components/Sign/SignUp.jsx';
+import { LandingPageContext } from './Contexts/LandingPageContext.jsx';
+
 // import logo from "./logo.svg";
 // import "./App.css";
 
 function App() {
-  const [data, setData] = React.useState(null);
+  // const [data, setData] = React.useState(null);
+  const { landingPage, profile } = React.useContext(LandingPageContext);
 
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
+  // React.useEffect(() => {
+  //   fetch("/api")
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data));
+  // }, []);
 
   return (
     <div className="App">
@@ -25,13 +30,17 @@ function App() {
         <p>{!data ? "Loading..." : data}</p>
       </header> */}
       <DashboardContextProvider>
+        {landingPage === 'SignIn' ? <SignIn/>
+          : landingPage === 'SignUp' ? <SignUp/>
+          : null}
         <ModalContextProvider>
-          {/* <Parent /> */}
-          <Counselor />
+          {profile === 'Parent' ? <Parent />
+            : profile === 'Counselor' ? <Counselor />
+            : profile === 'Camper' ? <Camper />
+            : null}
           <CampAbout />
           <EditProfile />
         </ModalContextProvider>
-        {/* <Camper /> */}
       </DashboardContextProvider>
     </div>
   );

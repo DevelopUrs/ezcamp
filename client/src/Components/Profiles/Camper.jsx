@@ -21,6 +21,7 @@ import { FaCampground } from 'react-icons/fa';
 import styled from 'styled-components';
 import { DashboardContext } from '../../Contexts/DashboardContext.jsx';
 import Dashboard from '../Dashboard/CamperDashboard.jsx';
+import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
 
 const drawerWidth = 240;
 
@@ -91,6 +92,7 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const { setView } = useContext(DashboardContext);
+  const { setLandingPage, setProfile } = React.useContext(LandingPageContext);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -103,6 +105,11 @@ export default function PersistentDrawerLeft() {
   const handleViewChange = (e) => {
     setView(e.target.innerHTML);
   };
+
+  const handleLogOut = () => {
+    setLandingPage('SignIn');
+    setProfile('My Profile');
+  }
 
   return (
     <div className={classes.root}>
@@ -127,7 +134,7 @@ export default function PersistentDrawerLeft() {
           <Typography variant="h6" noWrap>
             ADVENTURE KIDS CAMP
           </Typography>
-          <Btn><Button>Log Out</Button></Btn>
+          <Btn><Button onClick={handleLogOut}>Log Out</Button></Btn>
 
         </Toolbar>
 

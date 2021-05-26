@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import CampInfo from '../CampInfo/CampInfo.jsx';
+import CampInfo from '../CampInfo/ParentCampInfo.jsx';
 import CamperDashboard from '../CamperDashboard/CamperDashboard.jsx';
 import { DashboardContext } from '../../Contexts/DashboardContext.jsx';
 
