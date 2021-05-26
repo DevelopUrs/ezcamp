@@ -1,0 +1,32 @@
+{
+  "name": "ezcamp",
+  "version": "1.0.0",
+  "description": "# Catchy headline / cool graphic",
+  "main": "index.js",
+  "engines": {
+    "node": "14.15.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/index.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevelopUrs/ezcamp.git"
+  },
+  "keywords": [],
+  "author": "DevelopUrs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevelopUrs/ezcamp/issues"
+  },
+  "homepage": "https://github.com/DevelopUrs/ezcamp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "nodemon": "^2.0.7",
+    "twilio": "^3.63.0"
+  }
+}
