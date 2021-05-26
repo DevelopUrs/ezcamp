@@ -37,6 +37,24 @@ const kidPhoto = "https://trumpbundle.thekidsguide.com/masterfiles/x06-generic-h
 const CounselorDashboard = () => {
 
   const [readyToRender, setReadyToRender] = useState(true);
+  const [events, setEvents] = useState([
+    {
+    title: "Camping Event",
+    start: "2021-05-27",
+    end: "2021-05-29",
+    allDay: true,
+    resource: "Camping",
+  },
+  {
+    title: "Kickball",
+    start: "2021-05-21",
+    end: "2021-05-21",
+    startTime: '5:00',
+    endTime: '6:00',
+    allDay: true,
+    resource: "Camping",
+  }
+]);
   const classes = useStyles();
 
   var Dashboard = (
@@ -95,15 +113,7 @@ const CounselorDashboard = () => {
             <div>
               <Calendar
                 localizer={localizer}
-                events={[
-                  {
-                    title: "Camping Event",
-                    start: "2021-05-27",
-                    end: "2021-05-29",
-                    allDay: true,
-                    resource: "Camping",
-                  },
-                ]}
+                events={events}
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 500 }}
