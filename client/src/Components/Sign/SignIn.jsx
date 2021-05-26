@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
 import logo from '../../../dist/logo.png';
 import Styled from 'styled-components';
+// import sampleParent from '../../Components/sample_parent.jsx';
 
 const Logo = Styled.img`
   height: 15%;
