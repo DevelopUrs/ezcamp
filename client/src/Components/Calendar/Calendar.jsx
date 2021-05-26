@@ -1,29 +1,36 @@
 import React from 'react'
-import { Calendar, Views } from 'react-big-calendar'
-// import events from '../events'
-// import * as dates from '../../src/utils/dates'
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+// import styles from "../DashboardResources/assets/jss/material-dashboard-react/views/dashboardStyle.js";
+import moment from "moment";
 
-let allViews = Object.keys(Views).map(k => Views[k])
+// const useStyles = makeStyles(styles);
+const localizer = momentLocalizer(moment);
 
-const ColoredDateCellWrapper = ({ children }) =>
-  React.cloneElement(React.Children.only(children), {
-    style: {
-      backgroundColor: 'lightblue',
-    },
-  })
+// let allViews = Object.keys(Views).map(k => Views[k])
 
-let Basic = ({ localizer }) => (
+// const ColoredDateCellWrapper = ({ children }) =>
+//   React.cloneElement(React.Children.only(children), {
+//     style: {
+//       backgroundColor: 'lightblue',
+//     },
+//   })
+
+let Basic = () => (
   <Calendar
-    // events={events}
-    views={allViews}
-    step={60}
-    showMultiDayTimes
-    // max={dates.add(dates.endOf(new Date(2015, 17, 1), 'day'), -1, 'hours')}
-    defaultDate={new Date(2015, 3, 1)}
-    components={{
-      timeSlotWrapper: ColoredDateCellWrapper,
-    }}
     localizer={localizer}
+    events={[
+      {
+        title: "Camping Event",
+        start: "2021-05-27",
+        end: "2021-05-29",
+        allDay: true,
+        resource: "Camping",
+      },
+    ]}
+    startAccessor="start"
+    endAccessor="end"
+    style={{ height: 500 }}
   />
 )
 

@@ -15,9 +15,9 @@ const Dashboard = () => {
     {/* Where we will conditionally render the pages based on link clicked from SideBar */}
       {view === 'My Profile' ? <CounselorDashboard />
         : view === 'Campers' ? <Campers />
+        : view === 'Calendar of Events' ? <Calendar />
         : <CampInfo />
       }
-      {/* <Calendar /> */}
     </>
   );
 }
