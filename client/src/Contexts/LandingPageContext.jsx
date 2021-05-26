@@ -6,6 +6,7 @@ const LandingPageContextProvider = (props) => {
   const [landingPage, setLandingPage] = useState('SignIn');
   const [camp, setCamp] = useState(1);
   const [profile, setProfile] = useState('');
+  const [email, setEmail] = useState('');
 
   return (
     <LandingPageContext.Provider value={{
@@ -14,7 +15,9 @@ const LandingPageContextProvider = (props) => {
       profile,
       setProfile,
       camp,
-      setCamp
+      setCamp,
+      email,
+      setEmail,
       }}>
       {props.children}
     </LandingPageContext.Provider>

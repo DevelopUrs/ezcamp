@@ -6,6 +6,7 @@ import Counselor from './Components/Profiles/Counselor.jsx';
 import Camper from './Components/Profiles/Camper.jsx';
 import CampAbout from './Components/Modals/CampAbout.jsx';
 import EditProfile from './Components/Modals/ProfileEdit.jsx';
+import CalendarEdit from './Components/Modals/CalendarEdit.jsx';
 import SignIn from './Components/Sign/SignIn.jsx';
 import SignUp from './Components/Sign/SignUp.jsx';
 import Registration from './Components/Sign/Registration.jsx';
@@ -33,6 +34,7 @@ function App() {
       <DashboardContextProvider>
         {landingPage === 'SignIn' ? <SignIn/>
           : landingPage === 'SignUp' ? <SignUp/>
+          : landingPage === 'Register' ? <Registration/>
           : null}
         <ModalContextProvider>
           {profile === 'Parent' ? <Parent />
@@ -41,6 +43,7 @@ function App() {
             : null}
           <CampAbout />
           <EditProfile />
+          <CalendarEdit />
         </ModalContextProvider>
       </DashboardContextProvider>
     </div>

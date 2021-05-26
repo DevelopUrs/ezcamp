@@ -54,21 +54,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignInSide() {
-  const { setLandingPage, setProfile } = React.useContext(LandingPageContext);
-  const [email, setEmail] = useState('');
+  const { setLandingPage, email, setEmail, setProfile } = React.useContext(LandingPageContext);
   const classes = useStyles();
 
   const createAccount = () => {
     setLandingPage('SignUp');
   }
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
+  const updateProfile = () => {
+    setLandingPage('');
+    setProfile(email);
   }
 
-  const updateProfile = () => {
-    setProfile(email);
-    setLandingPage('');
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
   }
 
   return (

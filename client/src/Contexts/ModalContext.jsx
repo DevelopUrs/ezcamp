@@ -5,6 +5,7 @@ export const ModalContext = createContext();
 const ModalContextProvider = (props) => {
   const [campAbout, setCampAbout] = useState(false);
   const [editProfile, setEditProfile] = useState(false);
+  const [editCalendar, setEditCalendar] = useState(false);
 
   const toggleCampAbout = () => {
     setCampAbout(!campAbout);
@@ -14,12 +15,18 @@ const ModalContextProvider = (props) => {
     setEditProfile(!editProfile);
   };
 
+  const toggleEditCalendar = () => {
+    setEditCalendar(!editCalendar);
+  };
+
   return (
     <ModalContext.Provider value={{
       campAbout,
       editProfile,
+      editCalendar,
       toggleCampAbout,
-      toggleEditProfile
+      toggleEditProfile,
+      toggleEditCalendar
     }}
     >
       {props.children}
