@@ -59,6 +59,8 @@ const addData = [
         profileImageURL: faker.image.imageUrl(),
         email,
       });
+
+      console.log('parent email:', email);
     }
 
     Parents.create(parents)
