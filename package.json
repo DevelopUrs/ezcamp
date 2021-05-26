@@ -11,7 +11,8 @@
     "start": "nodemon server/index.js",
     "react-dev": "webpack --watch",
     "client": "cd client && npm start",
-    "build": "cd client && npm install && npm run build"
+    "build": "cd client && npm install && npm run build",
+    "data": "node faker.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "file-loader": "^6.2.0",
     "jquery": "^3.6.0",
     "material-dashboard-react": "^1.10.0",
+    "mongoose": "^5.12.11",
     "nodemon": "^2.0.7",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -54,6 +56,7 @@
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "faker": "^5.5.3"
   }
 }
