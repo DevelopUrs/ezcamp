@@ -5,6 +5,7 @@ export const LandingPageContext = createContext();
 const LandingPageContextProvider = (props) => {
   const [landingPage, setLandingPage] = useState('SignIn');
   const [profile, setProfile] = useState('');
+  const [email, setEmail] = useState('');
 
   return (
     <LandingPageContext.Provider value={{
@@ -12,6 +13,8 @@ const LandingPageContextProvider = (props) => {
       setLandingPage,
       profile,
       setProfile,
+      email,
+      setEmail
       }}>
       {props.children}
     </LandingPageContext.Provider>

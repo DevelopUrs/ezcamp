@@ -33,6 +33,7 @@ function App() {
       <DashboardContextProvider>
         {landingPage === 'SignIn' ? <SignIn/>
           : landingPage === 'SignUp' ? <SignUp/>
+          : landingPage === 'Register' ? <Registration/>
           : null}
         <ModalContextProvider>
           {profile === 'Parent' ? <Parent />

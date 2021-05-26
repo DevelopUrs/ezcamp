@@ -58,9 +58,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Register() {
-  const { setLandingPage, setProfile } = React.useContext(LandingPageContext);
-  const [email, setEmail] = useState('');
+  const { setLandingPage, setProfile, email } = React.useContext(LandingPageContext);
   const classes = useStyles();
+
+  const updateProfile = () => {
+    setLandingPage('');
+    setProfile(email);
+  }
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -110,6 +114,7 @@ export default function Register() {
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={updateProfile}
             >
               Register
             </Button>

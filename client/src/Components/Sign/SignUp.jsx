@@ -66,11 +66,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUpSide() {
-  const { setLandingPage } = React.useContext(LandingPageContext);
+  const { setLandingPage, email, setEmail } = React.useContext(LandingPageContext);
   const classes = useStyles();
 
   const logIn = () => {
     setLandingPage('SignIn');
+  }
+
+  const register = () => {
+    setLandingPage('Register');
+  }
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
   }
 
   return (
@@ -127,6 +135,7 @@ export default function SignUpSide() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              onChange={handleEmail}
             />
             <TextField
               variant="outlined"
@@ -149,6 +158,7 @@ export default function SignUpSide() {
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={register}
             >
               Sign Up
             </Button>
