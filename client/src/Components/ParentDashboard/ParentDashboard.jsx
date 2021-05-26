@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import Update from "@material-ui/icons/Update";
-import Accessibility from "@material-ui/icons/Accessibility";
 import Cloud from "@material-ui/icons/Cloud";
 import GridItem from "../DashboardResources/components/Grid/GridItem.js";
 import GridContainer from "../DashboardResources/components/Grid/GridContainer.js";
@@ -9,10 +7,9 @@ import Tasks from "../DashboardResources/components/Tasks/Tasks.js";
 import CustomTabs from "../DashboardResources/components/CustomTabs/CustomTabs.js";
 import Card from "../DashboardResources/components/Card/Card.js";
 import CardHeader from "../DashboardResources/components/Card/CardHeader.js";
-import CardIcon from "../DashboardResources/components/Card/CardIcon.js";
-import CardFooter from "../DashboardResources/components/Card/CardFooter.js";
-
+import Avatar from '@material-ui/core/Avatar';
 import { bugs, website, server } from "../DashboardResources/variables/general.js";
+import sampleCounselor from '../../Components/sample_Counselor.jsx';
 
 import styles from "../DashboardResources/assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
@@ -20,20 +17,35 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 import moment from "moment";
+import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
 
 const useStyles = makeStyles(styles);
 const localizer = momentLocalizer(moment);
 
 const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique ullamcorper dapibus.
-Aliquam aliquam porttitor est, eget venenatis velit mattis ac. Ut porta mollis iaculis. Donec nec augue commodo,
-bibendum turpis ut, molestie ipsum. Curabitur consectetur, mauris id aliquet laoreet, risus lorem imperdiet ex,
-eu lacinia urna sapien in quam. Etiam dignissim dolor velit, sed posuere neque aliquam nec. Duis mi nisi, fermentum
-ac mi lobortis, accumsan efficitur dui. Ut semper posuere mi non aliquet. Quisque rutrum efficitur vestibulum.`;
+Aliquam aliquam porttitor est, eget venenatis velit mattis ac. Ut porta mollis iaculis.`;
 
 const ParentDashboard = () => {
-
+  const { user, camp } = useContext(LandingPageContext);
   const [readyToRender, setReadyToRender] = useState(true);
+  const [children, setChildren] = useState({});
+  const [counselor, setCounselor] = useState({});
   const classes = useStyles();
+
+  useEffect(() => {
+    setChildren(user.children[0]);
+    for (let i = 0; i < sampleCounselor.length; i++) {
+      if (sampleCounselor[i].id === camp.id) {
+        for (let j = 0; j < sampleCounselor[i].counselors.length; j++) {
+          if (sampleCounselor[i].counselors[j].counselorId === children.counselor) {
+            setCounselor(sampleCounselor[i].counselors[j]);
+            // console.log(sampleCounselor[i].counselors[j]);
+          }
+        }
+      }
+    }
+    // console.log(user.children);
+  }, [camp.id, children.counselor, user]);
 
   var Dashboard = (
     <div>
@@ -41,35 +53,27 @@ const ParentDashboard = () => {
         <GridItem xs={24} sm={12} md={6}>
           <Card>
             <CardHeader color="info" stats icon>
-              <CardIcon color="info">
-                <Accessibility />
-              </CardIcon>
-              <h3 className={classes.cardTitle}>Kid&apos;s Name</h3>
-              <p className={classes.cardCategory}>{loremIpsum}</p>
+              <Avatar src={children.profileImageURL} style={{margin: 0, width: 80, height: 80}}/>
+              <h3 className={classes.cardTitle}>{children.firstName} {children.lastName}</h3>
+              <p className={classes.cardCategory}>
+                Parent: {user.firstName} {user.lastName}<br />
+                Allergies: {children.allergies}
+              </p>
+              <p className={classes.cardCategory}></p>
             </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Just Updated
-              </div>
-            </CardFooter>
           </Card>
         </GridItem>
         <GridItem xs={24} sm={12} md={6}>
           <Card>
             <CardHeader color="info" stats icon>
-              <CardIcon color="info">
-                <Accessibility />
-              </CardIcon>
+            <Avatar src={counselor.profileImageURL} style={{margin: 0, width: 80, height: 80}}/>
               <h3 className={classes.cardTitle}>Assigned Counselor</h3>
-              <p className={classes.cardCategory}>{loremIpsum}</p>
+              <p className={classes.cardCategory}>
+                <em><b>{counselor.firstName} {counselor.lastName}</b></em><br />
+                Email: {counselor.email}<br />
+                Bio: {loremIpsum}
+              </p>
             </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Just Updated
-              </div>
-            </CardFooter>
           </Card>
         </GridItem>
       </GridContainer>

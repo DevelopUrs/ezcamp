@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -62,7 +62,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
   },
@@ -94,7 +93,9 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const { setView } = useContext(DashboardContext);
-  const { setLandingPage, setProfile } = React.useContext(LandingPageContext);
+  const { setLandingPage, setProfile, camp } = React.useContext(LandingPageContext);
+
+  const campName = camp.name.toUpperCase();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -134,10 +135,9 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            ADVENTURE KIDS CAMP
+            {campName}
           </Typography>
           <Btn><Button onClick={handleLogOut}>Log Out</Button></Btn>
-
         </Toolbar>
 
       </AppBar>
