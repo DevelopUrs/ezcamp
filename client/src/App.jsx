@@ -11,6 +11,7 @@ import SignIn from './Components/Sign/SignIn.jsx';
 import SignUp from './Components/Sign/SignUp.jsx';
 import Registration from './Components/Sign/Registration.jsx';
 import { LandingPageContext } from './Contexts/LandingPageContext.jsx';
+import EventsContextProvider from './Contexts/EventsContext.jsx';
 
 // import logo from "./logo.svg";
 // import "./App.css";
@@ -36,15 +37,17 @@ function App() {
           : landingPage === 'SignUp' ? <SignUp/>
           : landingPage === 'Register' ? <Registration/>
           : null}
-        <ModalContextProvider>
-          {profile === 'Parent' ? <Parent />
-            : profile === 'Counselor' ? <Counselor />
-            : profile === 'Camper' ? <Camper />
-            : null}
-          <CampAbout />
-          <EditProfile />
-          <CalendarEdit />
-        </ModalContextProvider>
+        <EventsContextProvider>
+          <ModalContextProvider>
+            {profile === 'Parent' ? <Parent />
+              : profile === 'Counselor' ? <Counselor />
+              : profile === 'Camper' ? <Camper />
+              : null}
+            <CampAbout />
+            <EditProfile />
+            <CalendarEdit />
+          </ModalContextProvider>
+        </EventsContextProvider>
       </DashboardContextProvider>
     </div>
   );

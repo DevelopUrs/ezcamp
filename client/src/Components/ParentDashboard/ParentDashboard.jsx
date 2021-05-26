@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Update from "@material-ui/icons/Update";
 import Accessibility from "@material-ui/icons/Accessibility";
@@ -11,6 +11,7 @@ import Card from "../DashboardResources/components/Card/Card.js";
 import CardHeader from "../DashboardResources/components/Card/CardHeader.js";
 import CardIcon from "../DashboardResources/components/Card/CardIcon.js";
 import CardFooter from "../DashboardResources/components/Card/CardFooter.js";
+import { EventsContext } from '../../Contexts/EventsContext.jsx';
 
 import { bugs, website, server } from "../DashboardResources/variables/general.js";
 
@@ -32,6 +33,7 @@ ac mi lobortis, accumsan efficitur dui. Ut semper posuere mi non aliquet. Quisqu
 
 const ParentDashboard = () => {
 
+  const { events, setEvents } = useContext(EventsContext);
   const [readyToRender, setReadyToRender] = useState(true);
   const classes = useStyles();
 
@@ -127,15 +129,7 @@ const ParentDashboard = () => {
             <div>
               <Calendar
                 localizer={localizer}
-                events={[
-                  {
-                    title: "Camping Event",
-                    start: "2021-05-27",
-                    end: "2021-05-29",
-                    allDay: true,
-                    resource: "Camping",
-                  },
-                ]}
+                events={events}
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 500 }}

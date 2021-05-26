@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Update from "@material-ui/icons/Update";
 import Accessibility from "@material-ui/icons/Accessibility";
@@ -13,6 +13,7 @@ import CardIcon from "../DashboardResources/components/Card/CardIcon.js";
 import CardFooter from "../DashboardResources/components/Card/CardFooter.js";
 import Table from "../DashboardResources/components/Table/Table.js";
 import CardBody from "../DashboardResources/components/Card/CardBody.js";
+import { EventsContext } from '../../Contexts/EventsContext.jsx';
 
 // import { bugs, website, server } from "../DashboardResources/variables/general.js";
 
@@ -37,24 +38,7 @@ const kidPhoto = "https://trumpbundle.thekidsguide.com/masterfiles/x06-generic-h
 const CounselorDashboard = () => {
 
   const [readyToRender, setReadyToRender] = useState(true);
-  const [events, setEvents] = useState([
-    {
-    title: "Camping Event",
-    start: "2021-05-27",
-    end: "2021-05-29",
-    allDay: true,
-    resource: "Camping",
-  },
-  {
-    title: "Kickball",
-    start: "2021-05-21",
-    end: "2021-05-21",
-    startTime: '5:00',
-    endTime: '6:00',
-    allDay: true,
-    resource: "Camping",
-  }
-]);
+  const { events, setEvents } = useContext(EventsContext);
   const classes = useStyles();
 
   var Dashboard = (
