@@ -6,3 +6,4 @@ module.exports = getParent = (req, res) => {
   const { email } = req.params;
   retrieveParent(email, res);
 };
+r
