@@ -1,9 +1,10 @@
 import React, { createContext, useState } from 'react';
+import Events from '../Components/sample_events.jsx'
 
 export const EventsContext = createContext();
 
 const EventsContextProvider = (props) => {
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState(Events);
 
   return (
     <EventsContext.Provider value={{
