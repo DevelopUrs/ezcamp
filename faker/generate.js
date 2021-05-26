@@ -182,5 +182,5 @@ module.exports = generate = () => {
       });
     }
   ]
-  .forEach((func) => func());
+  // .forEach((func) => func());
 };

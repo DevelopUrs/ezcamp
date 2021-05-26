@@ -8,7 +8,7 @@ const router = express.Router();
 // query param: parent email
 router.get('/parent/:email', getParent);
 
-router.get('/calendar/');
+// router.get('/calendar');
 
 module.exports = router;
 

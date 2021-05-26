@@ -8,17 +8,6 @@ const {
   Parents, Children, Forms, Counselors, Passwords, Camps, Calendars
 } = require('../server/database/schema.js');
 
-// const generate = require('./generate.js');
-// generate();
-
-// const parents = [];
-// const children = [];
-// const forms = [];
-// const counselors = [];
-// const passwords = [];
-// const camps = [];
-// const calendars = [];
-
 const load = async () => {
   const files = await fsPromise.readdir('data');
   files.forEach((file) => {
@@ -29,6 +18,7 @@ const load = async () => {
 
     readInterface.on('line', (line) => {
       const data = JSON.parse(line);
+      console.log(data);
 
       switch(model) {
         case 'calendars':
