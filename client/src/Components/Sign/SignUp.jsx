@@ -66,15 +66,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUpSide() {
-  const { setLandingPage, email, setEmail } = React.useContext(LandingPageContext);
+  const { setLandingPage, email, setEmail, setProfile, profile } = React.useContext(LandingPageContext);
   const classes = useStyles();
 
   const logIn = () => {
     setLandingPage('SignIn');
   }
 
-  const register = () => {
-    setLandingPage('Register');
+  const updateProfile = () => {
+    if (email === 'Parent') {
+      setLandingPage('Register');
+    } else {
+      setLandingPage('');
+      setProfile(email);
+    }
   }
 
   const handleEmail = (e) => {
@@ -158,7 +163,7 @@ export default function SignUpSide() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={register}
+              onClick={updateProfile}
             >
               Sign Up
             </Button>

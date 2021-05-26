@@ -53,25 +53,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignInSide() {
-  const { setLandingPage, email, setEmail } = React.useContext(LandingPageContext);
+  const { setLandingPage, email, setEmail, setProfile } = React.useContext(LandingPageContext);
   const classes = useStyles();
 
   const createAccount = () => {
     setLandingPage('SignUp');
   }
 
-  const register = () => {
-    setLandingPage('Register');
+  const updateProfile = () => {
+    setLandingPage('');
+    setProfile(email);
   }
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
   }
-
-  // const updateProfile = () => {
-  //   setProfile(email);
-  //   setLandingPage('');
-  // }
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -118,7 +114,7 @@ export default function SignInSide() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={register}
+              onClick={updateProfile}
             >
               Sign In
             </Button>
