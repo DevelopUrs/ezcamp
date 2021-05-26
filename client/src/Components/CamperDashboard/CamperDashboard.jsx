@@ -3,18 +3,18 @@ import { makeStyles } from "@material-ui/core/styles";
 import Update from "@material-ui/icons/Update";
 import Accessibility from "@material-ui/icons/Accessibility";
 import Cloud from "@material-ui/icons/Cloud";
-import GridItem from "./components/Grid/GridItem.js";
-import GridContainer from "./components/Grid/GridContainer.js";
-import Tasks from "./components/Tasks/Tasks.js";
-import CustomTabs from "./components/CustomTabs/CustomTabs.js";
-import Card from "./components/Card/Card.js";
-import CardHeader from "./components/Card/CardHeader.js";
-import CardIcon from "./components/Card/CardIcon.js";
-import CardFooter from "./components/Card/CardFooter.js";
+import GridItem from "../DashboardResources/components/Grid/GridItem.js";
+import GridContainer from "../DashboardResources/components/Grid/GridContainer.js";
+import Tasks from "../DashboardResources/components/Tasks/Tasks.js";
+import CustomTabs from "../DashboardResources/components/CustomTabs/CustomTabs.js";
+import Card from "../DashboardResources/components/Card/Card.js";
+import CardHeader from "../DashboardResources/components/Card/CardHeader.js";
+import CardIcon from "../DashboardResources/components/Card/CardIcon.js";
+import CardFooter from "../DashboardResources/components/Card/CardFooter.js";
 
-import { bugs, website, server } from "./variables/general.js";
+import { bugs, website, server } from "../DashboardResources/variables/general.js";
 
-import styles from "./assets/jss/material-dashboard-react/views/dashboardStyle.js";
+import styles from "../DashboardResources/assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -30,7 +30,7 @@ bibendum turpis ut, molestie ipsum. Curabitur consectetur, mauris id aliquet lao
 eu lacinia urna sapien in quam. Etiam dignissim dolor velit, sed posuere neque aliquam nec. Duis mi nisi, fermentum
 ac mi lobortis, accumsan efficitur dui. Ut semper posuere mi non aliquet. Quisque rutrum efficitur vestibulum.`;
 
-const ParentDashboard = () => {
+const CamperDashboard = () => {
 
   const [readyToRender, setReadyToRender] = useState(true);
   const classes = useStyles();
@@ -152,4 +152,4 @@ const ParentDashboard = () => {
 
 }
 
-export default ParentDashboard;
+export default CamperDashboard;
