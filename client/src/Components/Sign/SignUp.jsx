@@ -107,7 +107,6 @@ export default function SignUpSide() {
               label="First Name"
               name="firstName"
               autoComplete="firstName"
-              autoFocus
             />
             <TextField
               variant="outlined"
@@ -118,7 +117,6 @@ export default function SignUpSide() {
               label="Last Name"
               name="lastName"
               autoComplete="lastName"
-              autoFocus
             />
             <TextField
               variant="outlined"
@@ -129,7 +127,6 @@ export default function SignUpSide() {
               label="Email Address"
               name="email"
               autoComplete="email"
-              autoFocus
             />
             <TextField
               variant="outlined"

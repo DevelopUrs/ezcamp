@@ -8,6 +8,7 @@ import CampAbout from './Components/Modals/CampAbout.jsx';
 import EditProfile from './Components/Modals/ProfileEdit.jsx';
 import SignIn from './Components/Sign/SignIn.jsx';
 import SignUp from './Components/Sign/SignUp.jsx';
+import Registration from './Components/Sign/Registration.jsx';
 import { LandingPageContext } from './Contexts/LandingPageContext.jsx';
 
 // import logo from "./logo.svg";
