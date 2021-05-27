@@ -8,6 +8,15 @@ db.once('open', function () {
   // we're connected!
 });
 
+// calendar schema
+// added campCode (enum)
+// time -> start and end date fields
+
+// children schema
+// added email
+
+// refer to other schemas using email if possible
+
 const counselorsSchema = mongoose.Schema({
   campCode: {
     type: String,
@@ -36,11 +45,25 @@ const parentsSchema = mongoose.Schema({
 const childrenSchema = mongoose.Schema({
   firstName: String,
   lastName: String,
+  email: {
+    type: String,
+    unique: true
+  },
   profileImageURL: String,
   parent: String,
   allergies: Array,
   counselor: String,
 });
+
+// const medicalFormsSchema = mongoose.Schema({
+//   file: String,
+//   child_id: String,
+// });
+
+// const activityFormsSchema = mongoose.Schema({
+//   file: String,
+//   child_id: String,
+// });
 
 const formsSchema = mongoose.Schema({
   file: String,
@@ -68,12 +91,14 @@ const campSchema = mongoose.Schema({
 });
 
 const calendarSchema = mongoose.Schema({
-  id: Number,
-  campName: String,
+  id: String,
+  campCode: {
+    type: String,
+    enum: ['camp1', 'camp2']
+  },
   month: String,
   activityName: String,
   description: String,
-  form: String,
   start: Date,
   end: Date
 });
@@ -87,19 +112,3 @@ const Camps = mongoose.model('Camps', campSchema);
 const Calendars = mongoose.model('Calendars', calendarSchema);
 
 module.exports = {Parents, Children, Forms, Counselors, Passwords, Camps, Calendars};
-
-// const reviewSchema = new Schema({
-//   review_id: {type: Number, unique: true},
-//   product_id: Number,
-//   rating: Number,
-//   summary: String,
-//   recommend: Boolean,
-//   response: String,
-//   body: String,
-//   date: Date,
-//   reviewer_name: String,
-//   helpfulness: Number,
-//   photos: [{}],
-// });
-
-// const Review = mongoose.model('review', reviewSchema);

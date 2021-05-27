@@ -10,7 +10,7 @@ const router = express.Router();
 // query param: parent email
 router.get('/parent/:email', getParent);
 
-router.get('/calendar/:month', getCalendar);
+router.get('/calendar/:campCode/:month', getCalendar);
 router.get('/counselors/:email', getCounselors);
 // router.get('/calendar');
 
