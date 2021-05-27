@@ -3,7 +3,7 @@ const express = require('express');
 const controllers = require('./controllers/index');
 const router = express.Router();
 
-router.get('/api', controllers.get.get);
+router.get('/', controllers.get.get);
 // router.get('/reviews', reviews.getReviews);
 // router.get('/reviews/meta', reviewsMeta.getMetadata);
 // router.post('/reviews', reviews.postReview);

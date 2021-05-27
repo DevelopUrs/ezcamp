@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Update from "@material-ui/icons/Update";
 import Accessibility from "@material-ui/icons/Accessibility";
@@ -11,9 +11,13 @@ import Card from "../DashboardResources/components/Card/Card.js";
 import CardHeader from "../DashboardResources/components/Card/CardHeader.js";
 import CardIcon from "../DashboardResources/components/Card/CardIcon.js";
 import CardFooter from "../DashboardResources/components/Card/CardFooter.js";
-import { EventsContext } from '../../Contexts/EventsContext.jsx';
+import { EventsContext } from "../../Contexts/EventsContext.jsx";
 
-import { bugs, website, server } from "../DashboardResources/variables/general.js";
+import {
+  bugs,
+  website,
+  server,
+} from "../DashboardResources/variables/general.js";
 
 import styles from "../DashboardResources/assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
@@ -32,7 +36,6 @@ eu lacinia urna sapien in quam. Etiam dignissim dolor velit, sed posuere neque a
 ac mi lobortis, accumsan efficitur dui. Ut semper posuere mi non aliquet. Quisque rutrum efficitur vestibulum.`;
 
 const ParentDashboard = () => {
-
   const { events, setEvents } = useContext(EventsContext);
   const [readyToRender, setReadyToRender] = useState(true);
   const classes = useStyles();
@@ -141,9 +144,12 @@ const ParentDashboard = () => {
     </div>
   );
 
-  let returnRender = readyToRender ? (<div>{Dashboard}</div>) : (<div>Loading...</div>);
+  let returnRender = readyToRender ? (
+    <div>{Dashboard}</div>
+  ) : (
+    <div>Loading...</div>
+  );
   return returnRender;
-
-}
+};
 
 export default ParentDashboard;
