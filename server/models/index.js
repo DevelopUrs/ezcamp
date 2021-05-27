@@ -2,3 +2,10 @@
 // exports.reviewsMeta = require('./reviewsMeta.js');
 // exports.helpful = require('./helpful.js');
 // exports.report = require('./report.js');
+
+// exports.retrieveParent = require('./retrieveParent.js');
+const retrieveParent = require('./retrieveParent.js');
+
+module.exports = {
+  retrieveParent,
+};

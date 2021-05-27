@@ -1,0 +1,4 @@
+{"_id":"60aea8dcfacd611fbf2e08ce","campCode":"camp1","name":"Wehner, Blick and Kuvalis","description":"Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"}
+{"_id":"60aea8dcfacd611fbf2e08cf","campCode":"camp2","name":"Hauck - Barrows","description":"The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive"}
+{"_id":"60aea90f55c1181fe45c3c24","campCode":"camp1","name":"Keeling LLC","description":"The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design"}
+{"_id":"60aea90f55c1181fe45c3c25","campCode":"camp2","name":"Altenwerth, Heathcote and Ortiz","description":"Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles"}
