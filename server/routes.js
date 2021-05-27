@@ -2,6 +2,7 @@ const express = require('express');
 // const { reviews, reviewsMeta, helpful, report, loaderio } = require('./controllers/index.js');
 const { getParent } = require('./controllers/index.js');
 const { getCalendar } = require('./controllers/index.js');
+const { getCounselors } = require('./controllers/getCounselors.js');
 const router = express.Router();
 
 // router.get('/api', controllers.get.get);
@@ -10,6 +11,10 @@ const router = express.Router();
 router.get('/parent/:email', getParent);
 
 router.get('/calendar/:month', getCalendar);
+router.get('/counselors/:email', getCounselors);
+// router.get('/calendar');
+
+
 
 module.exports = router;
 
