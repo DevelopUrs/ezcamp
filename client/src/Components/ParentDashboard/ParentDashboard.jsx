@@ -8,6 +8,10 @@ import CustomTabs from "../DashboardResources/components/CustomTabs/CustomTabs.j
 import Card from "../DashboardResources/components/Card/Card.js";
 import CardHeader from "../DashboardResources/components/Card/CardHeader.js";
 import Avatar from '@material-ui/core/Avatar';
+// import CardIcon from "../DashboardResources/components/Card/CardIcon.js";
+// import CardFooter from "../DashboardResources/components/Card/CardFooter.js";
+import { EventsContext } from '../../Contexts/EventsContext.jsx';
+
 import { bugs, website, server } from "../DashboardResources/variables/general.js";
 import sampleCounselor from '../../Components/sample_Counselor.jsx';
 
@@ -26,6 +30,8 @@ const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cra
 
 const ParentDashboard = () => {
   const { user, camp } = useContext(LandingPageContext);
+
+  const { events, setEvents } = useContext(EventsContext);
   const [readyToRender, setReadyToRender] = useState(true);
   const [children, setChildren] = useState({});
   const [counselor, setCounselor] = useState({});
@@ -128,15 +134,7 @@ const ParentDashboard = () => {
             <div>
               <Calendar
                 localizer={localizer}
-                events={[
-                  {
-                    title: "Camping Event",
-                    start: "2021-05-27",
-                    end: "2021-05-29",
-                    allDay: true,
-                    resource: "Camping",
-                  },
-                ]}
+                events={events}
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 500 }}

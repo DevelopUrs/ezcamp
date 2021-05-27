@@ -7,6 +7,10 @@ import CardHeader from "../DashboardResources/components/Card/CardHeader.js";
 import Table from "../DashboardResources/components/Table/Table.js";
 import CardBody from "../DashboardResources/components/Card/CardBody.js";
 import Avatar from '@material-ui/core/Avatar';
+import { EventsContext } from '../../Contexts/EventsContext.jsx';
+
+// import { bugs, website, server } from "../DashboardResources/variables/general.js";
+
 import styles from "../DashboardResources/assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import sampleParent from '../../Components/sample_parent.jsx';
 
@@ -25,6 +29,7 @@ const CounselorDashboard = () => {
   const { user, camp } = useContext(LandingPageContext);
   const [readyToRender, setReadyToRender] = useState(true);
   const [campers, setCampers] = useState([]);
+  const { events, setEvents } = useContext(EventsContext);
   const classes = useStyles();
 
   useEffect(() => {
@@ -88,15 +93,7 @@ const CounselorDashboard = () => {
             <div>
               <Calendar
                 localizer={localizer}
-                events={[
-                  {
-                    title: "Camping Event",
-                    start: "2021-05-27",
-                    end: "2021-05-29",
-                    allDay: true,
-                    resource: "Camping",
-                  },
-                ]}
+                events={events}
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 500 }}

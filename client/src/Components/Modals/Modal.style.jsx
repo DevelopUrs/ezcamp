@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ModalWrapper = styled.div`
+  z-index: 101;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -9,6 +10,7 @@ export const ModalWrapper = styled.div`
 `;
 
 export const ModalBackdrop = styled.div`
+  z-index: 101;
   position: fixed;
   top: 0;
   bottom: 0;
