@@ -8,15 +8,6 @@ db.once('open', function () {
   // we're connected!
 });
 
-// calendar schema
-// added campCode (enum)
-// time -> start and end date fields
-
-// children schema
-// added email
-
-// refer to other schemas using email if possible
-
 const counselorsSchema = mongoose.Schema({
   campCode: {
     type: String,
@@ -55,23 +46,13 @@ const childrenSchema = mongoose.Schema({
   counselor: String,
 });
 
-// const medicalFormsSchema = mongoose.Schema({
-//   file: String,
-//   child_id: String,
-// });
-
-// const activityFormsSchema = mongoose.Schema({
-//   file: String,
-//   child_id: String,
-// });
-
 const formsSchema = mongoose.Schema({
   file: String,
   type: {
     type: String,
-    enum: ['medical', 'travel']
+    enum: ['medical', 'activity']
   },
-  child_id: String
+  child: String
 });
 
 const passwordsSchema = mongoose.Schema({
@@ -91,7 +72,6 @@ const campSchema = mongoose.Schema({
 });
 
 const calendarSchema = mongoose.Schema({
-  id: String,
   campCode: {
     type: String,
     enum: ['camp1', 'camp2']

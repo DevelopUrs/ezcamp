@@ -4,62 +4,37 @@ const readline = require('readline');
 const path = require('path');
 const mongoose = require('mongoose');
 
+const generate = require('./generate.js');
 const {
   Parents, Children, Forms, Counselors, Passwords, Camps, Calendars
 } = require('../server/database/schema.js');
 
 const load = async () => {
-  const files = await fs.promises.readdir('data');
-  files.forEach((file) => {
-    const model = file.split('.')[0];
+  // generate();
+
+  [Parents, Children, Forms, Counselors, Passwords, Camps, Calendars].forEach((model) => {
+    model.collection.drop();
+  });
+
+  const data = {
+    counselors: Counselors,
+    parents: Parents,
+    calendars: Calendars,
+    children: Children,
+    camp: Camps,
+    forms: Forms,
+    passwords: Passwords,
+  };
+
+  Object.entries(data).forEach(async (file) => {
+    const [fileName, model] = file;
     const readInterface = readline.createInterface({
-      input: fs.createReadStream(path.join('data', file))
+      input: fs.createReadStream(path.join('data', `${fileName}.txt`))
     });
 
-    readInterface.on('line', (line) => {
-      const data = JSON.parse(line);
-      console.log(data);
-
-      switch(model) {
-        case 'calendars':
-          Calendars.create(data)
-            .then(() => {})
-            .catch((err) => console.log(err));
-        case 'camp':
-          Camps.create(data)
-            .then(() => {})
-            .catch((err) => console.log(err));
-        case 'children':
-          Children.create(data)
-            .then(() => {})
-            .catch((err) => console.log(err));
-        case 'counselors':
-          Counselors.create(data)
-            .then(() => {})
-            .catch((err) => console.log(err));
-        case 'form':
-          Forms.create(data)
-            .then(() => {})
-            .catch((err) => console.log(err));
-        case 'parents':
-          Parents.create(data)
-            .then(() => {})
-            .catch((err) => console.log(err));
-        case 'passwords':
-          Passwords.create(data)
-            .then(() => {})
-            .catch((err) => console.log(err));
-      }
-    });
-
-    readInterface.on('end', () => console.log('done adding'));
+    readInterface.on('line', async (line) => await model.create(JSON.parse(line)));
+    readInterface.on('end', () => console.log(`done adding ${fileName}`));
   });
 };
 
 load();
-
-// setTimeout(() => {
-//   [parents, children, forms, counselors, passwords, camps, calendars].forEach((data) => {
-//     console.log(data.length);
-//   });
-// }, 1000);
