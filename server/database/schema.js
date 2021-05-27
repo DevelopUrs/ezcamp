@@ -68,11 +68,14 @@ const campSchema = mongoose.Schema({
 });
 
 const calendarSchema = mongoose.Schema({
+  id: Number,
+  campName: String,
   month: String,
   activityName: String,
   description: String,
-  forms: [{medicalForms: String, travelPermissionForms: String}],
-  time: Date
+  form: String,
+  start: Date,
+  end: Date
 });
 
 const Parents = mongoose.model('Parents', parentsSchema);

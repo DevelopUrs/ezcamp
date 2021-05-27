@@ -1,5 +1,5 @@
 const fs = require('fs');
-const fsPromise = require('fs/promises');
+// const fsPromise = require('fs/promises');
 const readline = require('readline');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -9,7 +9,7 @@ const {
 } = require('../server/database/schema.js');
 
 const load = async () => {
-  const files = await fsPromise.readdir('data');
+  const files = await fs.promises.readdir('data');
   files.forEach((file) => {
     const model = file.split('.')[0];
     const readInterface = readline.createInterface({
