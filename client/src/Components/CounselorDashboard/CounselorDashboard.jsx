@@ -1,13 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-// import Update from "@material-ui/icons/Update";
-// import Accessibility from "@material-ui/icons/Accessibility";
 import GridItem from "../DashboardResources/components/Grid/GridItem.js";
 import GridContainer from "../DashboardResources/components/Grid/GridContainer.js";
 import Card from "../DashboardResources/components/Card/Card.js";
 import CardHeader from "../DashboardResources/components/Card/CardHeader.js";
-// import CardIcon from "../DashboardResources/components/Card/CardIcon.js";
-// import CardFooter from "../DashboardResources/components/Card/CardFooter.js";
 import Table from "../DashboardResources/components/Table/Table.js";
 import CardBody from "../DashboardResources/components/Card/CardBody.js";
 import Avatar from '@material-ui/core/Avatar';
@@ -24,8 +20,6 @@ const useStyles = makeStyles(styles);
 const localizer = momentLocalizer(moment);
 
 const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique ullamcorper dapibus.`;
-
-const kidPhoto = "https://trumpbundle.thekidsguide.com/masterfiles/x06-generic-hybrid-dt-ebk2009/images/GENERIC%20KID-3.png";
 
 const CounselorDashboard = () => {
   const { user, camp } = useContext(LandingPageContext);

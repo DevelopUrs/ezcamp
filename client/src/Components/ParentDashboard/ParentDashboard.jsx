@@ -22,8 +22,7 @@ import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
 const useStyles = makeStyles(styles);
 const localizer = momentLocalizer(moment);
 
-const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique ullamcorper dapibus.
-Aliquam aliquam porttitor est, eget venenatis velit mattis ac. Ut porta mollis iaculis.`;
+const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique ullamcorper dapibus.`;
 
 const ParentDashboard = () => {
   const { user, camp } = useContext(LandingPageContext);
@@ -39,12 +38,10 @@ const ParentDashboard = () => {
         for (let j = 0; j < sampleCounselor[i].counselors.length; j++) {
           if (sampleCounselor[i].counselors[j].counselorId === children.counselor) {
             setCounselor(sampleCounselor[i].counselors[j]);
-            // console.log(sampleCounselor[i].counselors[j]);
           }
         }
       }
     }
-    // console.log(user.children);
   }, [camp.id, children.counselor, user]);
 
   var Dashboard = (

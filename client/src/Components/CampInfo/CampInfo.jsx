@@ -5,9 +5,12 @@ import { Header, Text } from './CampInfo.styles.jsx';
 import Profile from '../ProfileCard/editProfileCard.jsx';
 import Button from '@material-ui/core/Button';
 import { ModalContext } from '../../Contexts/ModalContext.jsx';
+//add LandingPage Context
+//add sampledata- counselor
 
 const CampInfo = () => {
   const {toggleCampAbout} = useContext(ModalContext);
+  //use LandingPage Context to use the camp and the user
 
   return (
     <>
@@ -16,6 +19,7 @@ const CampInfo = () => {
         <Avatar>A</Avatar>
       </Grid>
       <Grid item xs={11}>
+        {/* {campName} */}
         <Header>Adventure Kids Camp</Header>
       </Grid>
       <Grid item xs={12}>
@@ -23,10 +27,6 @@ const CampInfo = () => {
         <Button size="small" color="primary" onClick={toggleCampAbout}>Edit</Button>
         <Text>ADVENTURE KIDS CAMPS is a full-day camp with a wide variety of unique experiences sure to delight your child!
         Activities are structured to be healthy, engaging, educational, and most of all, FUN. A highly trained, enthusiastic staff ensures that your child is safe, happy, and making positive relationships with fellow campers. ADVENTURES KIDS CAMP is also economical and provides families with flexible options to best fit summertime schedules.</Text>
-      </Grid>
-      <Grid item xs={12}>
-        <Header>Our Leaders</Header>
-        <Profile />
       </Grid>
       <Grid item xs={12}>
         <Header>Our Counselors</Header>

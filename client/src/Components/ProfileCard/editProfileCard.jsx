@@ -8,6 +8,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { ModalContext } from '../../Contexts/ModalContext.jsx';
+//iimport LandingPage Context
+//import sampleCounselors
 
 const useStyles = makeStyles({
   root: {
@@ -20,6 +22,7 @@ const useStyles = makeStyles({
 
 export default function MediaCard() {
   const {toggleEditProfile} = useContext(ModalContext);
+  //use user from LandingPage
   const classes = useStyles();
   let img = 'https://images.unsplash.com/photo-1607277126387-0a1592dddfb6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=802&q=80';
 
