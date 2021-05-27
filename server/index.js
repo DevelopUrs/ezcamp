@@ -52,8 +52,14 @@ io.on('connection', (socket) => {
 
 // Have Node serve the files for our built React app
 // app.use(express.static(path.resolve(__dirname, '../client/build')));
+<<<<<<< HEAD
 // app.use(express.json());
 
+=======
+app.use(express.static(path.join(__dirname, '../client/dist/')));
+app.use(express.json());
+app.use('/', router);
+>>>>>>> 00ec1f72a320d1489163248ea297e7a4cc5a79e3
 
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)
