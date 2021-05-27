@@ -11,7 +11,7 @@
     "start": "nodemon server/index.js",
     "react-dev": "webpack --watch",
     "client": "cd client && npm start",
-    "build": "npm start && webpack"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
