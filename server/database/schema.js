@@ -10,8 +10,8 @@ db.once('open', function () {
 
 const counselorsSchema = mongoose.Schema({
   campCode: {
-    type: String,
-    enum: ['camp1', 'camp2']
+    type: Number,
+    enum: [1, 2]
   },
   firstName: String,
   lastName: String,
@@ -64,8 +64,8 @@ const passwordsSchema = mongoose.Schema({
 
 const campSchema = mongoose.Schema({
   campCode: {
-    type: String,
-    enum: ['camp1', 'camp2']
+    type: Number,
+    enum: [1, 2]
   },
   name: String,
   description: String
@@ -73,12 +73,11 @@ const campSchema = mongoose.Schema({
 
 const calendarSchema = mongoose.Schema({
   campCode: {
-    type: String,
-    enum: ['camp1', 'camp2']
+    type: Number,
+    enum: [1, 2]
   },
   month: String,
   activityName: String,
-  description: String,
   start: Date,
   end: Date
 });

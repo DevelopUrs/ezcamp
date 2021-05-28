@@ -10,6 +10,7 @@ const getLogin = require('./checkLogin.js');
 const addParent = require('./addParent.js');
 const addCounselor = require('./addCounselor.js');
 const addChild = require('./addChild.js');
+const addEvent = require('./addEvent.js');
 
 module.exports = {
   getParent,
@@ -20,4 +21,5 @@ module.exports = {
   addParent,
   addCounselor,
   addChild,
+  addEvent,
 };

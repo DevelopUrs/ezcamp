@@ -11,7 +11,8 @@ const validateLogin = require('./validateLogin.js');
 
 const insertParent = require('./insertParent.js');
 const insertCounselor = require('./insertCounselor.js');
-const insertChild = require('./insertChild');
+const insertChild = require('./insertChild.js');
+const insertEvent = require('./insertEvent.js');
 
 module.exports = {
   retrieveParent,
@@ -22,4 +23,5 @@ module.exports = {
   insertParent,
   insertCounselor,
   insertChild,
+  insertEvent,
 };

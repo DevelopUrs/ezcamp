@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const { getParent, getCalendar, getForm, checkLogin } = require('./controllers');
-const { addParent, addCounselor, addChild } = require('./controllers');
+const { addParent, addCounselor, addChild, addEvent } = require('./controllers');
 const { getCounselors } = require('./controllers/getCounselors.js');
 
 router.get('/parent/:email', getParent);
@@ -18,7 +18,8 @@ router.post('/signup/parent', addParent);
 router.post('/signup/counselor', addCounselor);
 // also takes in an allergies array
 router.post('/signup/child', addChild);
-// router.post('/calendar', addEvent);
+// takes in a campCode, month, activityName, start and end
+router.post('/calendar/:campCode', addEvent);
 
 // router.post('/form', addForm);
 

@@ -30,7 +30,7 @@ const generate = () => {
         model.collection.drop();
       });
     }, () => {
-      const campCodes = ['camp1', 'camp2'];
+      const campCodes = [1, 2];
       for (let count = 0; count < 10; count++) {
         const email = faker.internet.email();
         counselorsEmail.push(email);
@@ -121,13 +121,13 @@ const generate = () => {
       });
     }, () => {
       camps.push({
-        campCode: 'camp1',
+        campCode: 1,
         name: faker.company.companyName(),
         description: faker.commerce.productDescription(),
       });
 
       camps.push({
-        campCode: 'camp2',
+        campCode: 2,
         name: faker.company.companyName(),
         description: faker.commerce.productDescription(),
       });
@@ -137,13 +137,12 @@ const generate = () => {
       });
     }, () => {
       for (let count = 0; count < 10; count++) {
-        const campCodes = ['camp1', 'camp2'];
+        const campCodes = [1, 2];
 
         calendars.push({
           campCode: campCodes[count % 2],
           month: faker.date.month(),
           activityName: faker.music.genre(),
-          description: faker.commerce.productDescription(),
           forms: [],
           start: faker.date.past(),
           end: faker.date.future(),
