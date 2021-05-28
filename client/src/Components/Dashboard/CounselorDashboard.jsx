@@ -4,7 +4,7 @@ import Calendar from '../Calendar/Calendar.jsx';
 import Campers from '../Campers/Campers.jsx';
 import CounselorDashboard from '../CounselorDashboard/CounselorDashboard.jsx';
 import { DashboardContext } from '../../Contexts/DashboardContext.jsx';
-//import Chat component
+// import Chat from '../Chat/Chat.jsx';
 
 const Dashboard = () => {
   const { view } = useContext(DashboardContext);

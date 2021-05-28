@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -12,6 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import Avatar from '@material-ui/core/Avatar';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -22,6 +23,8 @@ import styled from 'styled-components';
 import { DashboardContext } from '../../Contexts/DashboardContext.jsx';
 import Dashboard from '../Dashboard/CamperDashboard.jsx';
 import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
+import sampleParent from '../../Components/sample_parent.jsx';
+
 
 const drawerWidth = 240;
 
@@ -91,10 +94,27 @@ export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [camperImg, setCamperImg] = useState({});
   const { setView } = useContext(DashboardContext);
-  const { setLandingPage, setProfile, camp } = React.useContext(LandingPageContext);
+  const { setLandingPage, setProfile, camp, user, email } = React.useContext(LandingPageContext);
 
   const campName = camp.name.toUpperCase();
+
+  useEffect(() => {
+    for (let i = 0; i < sampleParent.length; i++) {
+      if (sampleParent[i].id === camp.id) {
+        for (let j = 0; j < sampleParent[i].parents.length; j++) {
+          if (sampleParent[i].parents[j].parentId === user.parentId) {
+            for (let k = 0; k < user.children.length; k++) {
+              if (user.children[k].email === email) {
+                setCamperImg(user.children[k].profileImageURL);
+              }
+            }
+          }
+        }
+      }
+    }
+  }, [camp.id, email, user.children, user.parentId]);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -122,7 +142,7 @@ export default function PersistentDrawerLeft() {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
-      >
+        >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -151,11 +171,13 @@ export default function PersistentDrawerLeft() {
         }}
       >
         <div className={classes.drawerHeader}>
+          <Avatar src={camperImg} style={{'margin-right': '130px'}} />
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
         <Divider />
+
         <List>
           {['My Profile', 'Info About Camp'].map((text, index) => (
             <ListItem button id={text} key={text} onClick={handleViewChange}>
