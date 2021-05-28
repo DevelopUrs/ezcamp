@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/parent/:email', getParent);
 
 router.get('/calendar/:campCode/:month', getCalendar);
-router.get('/counselors/:email', getCounselors);
+router.get('/counselors/:campCode', getCounselors);
 // router.get('/calendar');
 
 
