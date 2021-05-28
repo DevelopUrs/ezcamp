@@ -4,8 +4,13 @@
 // getParent is undefined
 const getParent = require('./getParent.js');
 const getCalendar = require('./getCalendar.js');
+const getForm = require('./getForm.js');
+
+const addParent = require('./addParent.js');
 
 module.exports = {
   getParent,
-  getCalendar
+  getCalendar,
+  getForm,
+  addParent,
 };

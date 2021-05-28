@@ -1,29 +1,28 @@
 const express = require('express');
-// const { reviews, reviewsMeta, helpful, report, loaderio } = require('./controllers/index.js');
-const { getParent } = require('./controllers/index.js');
-const { getCalendar } = require('./controllers/index.js');
-const { getCounselors } = require('./controllers/getCounselors.js');
 const router = express.Router();
 
-// router.get('/api', controllers.get.get);
+const { getParent, getCalendar, getForm } = require('./controllers');
+const { addParent, } = require('./controllers');
+const { getCounselors } = require('./controllers/getCounselors.js');
 
-// query param: parent email
 router.get('/parent/:email', getParent);
-
 router.get('/calendar/:campCode/:month', getCalendar);
 router.get('/counselors/:campCode', getCounselors);
-// router.get('/calendar');
-router.get('/form/:type/:email', getForms);
+router.get('/form/:type/:email', getForm);
+
+// authenticate user password
+// pass in email and password in req.body
+// router.get('/login', login);
 
 router.post('/parent', addParent);
 // first name, last name, email, password
-router.post('/calendar', addEvent);
+// router.post('/calendar', addEvent);
 
-router.post('/counselors', addCounselor);
-// first name, last name, email, password
+// router.post('/counselors', addCounselor);
+// // first name, last name, email, password
 
-router.post('/child', addChild);
-router.post('/form', addForm);
+// router.post('/child', addChild);
+// router.post('/form', addForm);
 
 module.exports = router;
 

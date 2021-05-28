@@ -6,8 +6,14 @@
 // exports.retrieveParent = require('./retrieveParent.js');
 const retrieveParent = require('./retrieveParent.js');
 const retrieveCalendar = require('./retrieveCalendar.js');
+const retrieveForms = require('./retrieveForm.js');
+
+const insertParent = require('./insertParent.js');
 
 module.exports = {
   retrieveParent,
-  retrieveCalendar
+  retrieveCalendar,
+  retrieveForm,
+
+  insertParent,
 };

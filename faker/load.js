@@ -3,7 +3,7 @@ const readline = require('readline');
 const path = require('path');
 const mongoose = require('mongoose');
 
-const generate = require('./generate.js');
+// const generate = require('./generate.js');
 const {
   Parents, Children, Forms, Counselors, Passwords, Camps, Calendars
 } = require('../server/database/schema.js');

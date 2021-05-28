@@ -8,7 +8,7 @@ const {
   Parents, Children, Forms, Counselors, Passwords, Camps, Calendars
 } = require('../server/database/schema.js');
 
-module.exports = generate = () => {
+const generate = () => {
   const rows = new Array(10);
 
   const parents = [];
@@ -110,8 +110,8 @@ module.exports = generate = () => {
       for (let count = 0; count < emails.length; count++) {
         passwords.push({
           email: emails[count],
-          salt: Buffer.alloc(16),
-          vector: Buffer.alloc(8),
+          salt: faker.internet.password(),
+          vector: faker.internet.password(),
           password: faker.internet.password(),
         });
       }
@@ -157,3 +157,5 @@ module.exports = generate = () => {
   ]
   .forEach((func) => func());
 };
+
+generate();

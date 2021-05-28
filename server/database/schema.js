@@ -57,8 +57,8 @@ const formsSchema = mongoose.Schema({
 
 const passwordsSchema = mongoose.Schema({
   email: String,
-  salt: Buffer,
-  vector: Buffer,
+  salt: String,
+  vector: String,
   password: String
 });
 
