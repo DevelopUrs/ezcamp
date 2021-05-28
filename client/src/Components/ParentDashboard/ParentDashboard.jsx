@@ -146,9 +146,12 @@ const ParentDashboard = () => {
     </div>
   );
 
-  let returnRender = readyToRender ? (<div>{Dashboard}</div>) : (<div>Loading...</div>);
+  let returnRender = readyToRender ? (
+    <div>{Dashboard}</div>
+  ) : (
+    <div>Loading...</div>
+  );
   return returnRender;
-
-}
+};
 
 export default ParentDashboard;

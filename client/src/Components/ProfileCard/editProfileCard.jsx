@@ -47,7 +47,10 @@ export default function MediaCard(props) {
             {props.counselor.firstName + ' ' + props.counselor.lastName}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          We are in the kid business. Our staff have a heart for reaching kids and building lasting relationships through sports camping. We desire to love, protect, serve, encourage, and challenge each kid who walks through the camp gates.
+            We are in the kid business. Our staff have a heart for reaching kids
+            and building lasting relationships through sports camping. We desire
+            to love, protect, serve, encourage, and challenge each kid who walks
+            through the camp gates.
           </Typography>
         </CardContent>
       </CardActionArea>

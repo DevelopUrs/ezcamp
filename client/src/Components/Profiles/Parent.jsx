@@ -29,10 +29,10 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
   },
   appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   hide: {
-    display: 'none',
+    display: "none",
   },
   drawer: {
     width: drawerWidth,
@@ -59,23 +59,23 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
   },
   contentShift: {
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -110,15 +110,15 @@ export default function PersistentDrawerLeft() {
   };
 
   const handleLogOut = () => {
-    setLandingPage('SignIn');
-    setProfile('My Profile');
-  }
+    setLandingPage("SignIn");
+    setProfile("My Profile");
+  };
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
-        style={{ background: '#2EC4B6' }}
+        style={{ background: "#2EC4B6" }}
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -137,9 +137,10 @@ export default function PersistentDrawerLeft() {
           <Typography variant="h6" noWrap>
             {campName}
           </Typography>
-          <Btn><Button onClick={handleLogOut}>Log Out</Button></Btn>
+          <Btn>
+            <Button onClick={handleLogOut}>Log Out</Button>
+          </Btn>
         </Toolbar>
-
       </AppBar>
       <Drawer
         className={classes.drawer}
@@ -152,20 +153,33 @@ export default function PersistentDrawerLeft() {
       >
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
           </IconButton>
         </div>
         <Divider />
         <List>
-          {['My Profile', 'Info About Camp', 'Forms', 'Chat'].map((text, index) => (
-            <ListItem button id={text} key={text} onClick={handleViewChange}>
-              <ListItemIcon>{index === 0 ? <HomeIcon style={{color: '#ff9f1c'}}/>
-                : index === 1 ? <FaCampground />
-                : index === 2 ? <FormatAlignCenterIcon />
-                : <ChatIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          {["My Profile", "Info About Camp", "Forms", "Chat"].map(
+            (text, index) => (
+              <ListItem button id={text} key={text} onClick={handleViewChange}>
+                <ListItemIcon>
+                  {index === 0 ? (
+                    <HomeIcon style={{ color: "#ff9f1c" }} />
+                  ) : index === 1 ? (
+                    <FaCampground />
+                  ) : index === 2 ? (
+                    <FormatAlignCenterIcon />
+                  ) : (
+                    <ChatIcon />
+                  )}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            )
+          )}
         </List>
         <Divider />
       </Drawer>
