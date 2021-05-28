@@ -6,20 +6,20 @@ import Profile from '../ProfileCard/ProfileCard.jsx';
 import sampleParent from '../../Components/sample_parent.jsx';
 
 const Campers = () => {
-  const { camp } = useContext(LandingPageContext);
-  // const [allCampers, setAllCampers] = useState([]);
+  // const { camp } = useContext(LandingPageContext);
+  // // const [allCampers, setAllCampers] = useState([]);
 
-  let campers = [];
-  for (let i = 0; i < sampleParent.length; i++) {
-    if (sampleParent[i].id === camp.id) {
-      for (let j = 0; j < sampleParent[i].parents.length; j++) {
+  // let campers = [];
+  // for (let i = 0; i < sampleParent.length; i++) {
+  //   if (sampleParent[i].id === camp.id) {
+  //     for (let j = 0; j < sampleParent[i].parents.length; j++) {
 
-        // campers.push(sampleParent[i].children[j]);
-      }
-    }
-  }
+  //       // campers.push(sampleParent[i].children[j]);
+  //     }
+  //   }
+  // }
 
-  console.log(campers);
+  // console.log(campers);
 
   return (
     <>
@@ -30,7 +30,7 @@ const Campers = () => {
       {/* {campers.map((camper) =>
         <Profile camper={camper} />
       )} */}
-      <Profile />
+      {/* <Profile /> */}
     </Grid>
     </>
   );
