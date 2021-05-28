@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import Grid from "@material-ui/core/Grid";
 import { Header, Text } from "../CampInfo/CampInfo.styles.jsx";
 import { LandingPageContext } from "../../Contexts/LandingPageContext.jsx";
-import Profile from "../ProfileCard/ProfileCard.jsx";
+import Profile from "../ProfileCard/profileCard.jsx";
 import sampleParent from "../../Components/sample_parent.jsx";
 
 const Campers = () => {
