@@ -12,7 +12,7 @@ const ENDPOINT = "localhost:3000";
 
 const Chat = ({ location }) => {
   const [name, setName] = useState("");
-  const [room, setRoom] = useState("");
+  const [room, setRoom] = useState("Chat");
   const [users, setUsers] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
