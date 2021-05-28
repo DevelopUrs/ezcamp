@@ -1,5 +1,4 @@
 const fs = require('fs');
-// const fsPromise = require('fs/promises');
 const readline = require('readline');
 const path = require('path');
 const mongoose = require('mongoose');
