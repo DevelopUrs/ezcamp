@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Update from "@material-ui/icons/Update";
 import Accessibility from "@material-ui/icons/Accessibility";
@@ -20,18 +20,15 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 import moment from "moment";
+import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
 
 const useStyles = makeStyles(styles);
 const localizer = momentLocalizer(moment);
 
-const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique ullamcorper dapibus.
-Aliquam aliquam porttitor est, eget venenatis velit mattis ac. Ut porta mollis iaculis. Donec nec augue commodo,
-bibendum turpis ut, molestie ipsum. Curabitur consectetur, mauris id aliquet laoreet, risus lorem imperdiet ex,
-eu lacinia urna sapien in quam. Etiam dignissim dolor velit, sed posuere neque aliquam nec. Duis mi nisi, fermentum
-ac mi lobortis, accumsan efficitur dui. Ut semper posuere mi non aliquet. Quisque rutrum efficitur vestibulum.`;
+const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique ullamcorper dapibus.`;
 
 const CamperDashboard = () => {
-
+  const { user, camp } = useContext(LandingPageContext);
   const [readyToRender, setReadyToRender] = useState(true);
   const classes = useStyles();
 
@@ -47,12 +44,6 @@ const CamperDashboard = () => {
               <h3 className={classes.cardTitle}>Kid&apos;s Name</h3>
               <p className={classes.cardCategory}>{loremIpsum}</p>
             </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Just Updated
-              </div>
-            </CardFooter>
           </Card>
         </GridItem>
         <GridItem xs={24} sm={12} md={6}>

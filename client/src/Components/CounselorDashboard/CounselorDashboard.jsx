@@ -1,45 +1,54 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import Update from "@material-ui/icons/Update";
-import Accessibility from "@material-ui/icons/Accessibility";
-// import Cloud from "@material-ui/icons/Cloud";
 import GridItem from "../DashboardResources/components/Grid/GridItem.js";
 import GridContainer from "../DashboardResources/components/Grid/GridContainer.js";
-// import Tasks from "../DashboardResources/components/Tasks/Tasks.js";
-// import CustomTabs from "../DashboardResources/components/CustomTabs/CustomTabs.js";
 import Card from "../DashboardResources/components/Card/Card.js";
 import CardHeader from "../DashboardResources/components/Card/CardHeader.js";
-import CardIcon from "../DashboardResources/components/Card/CardIcon.js";
-import CardFooter from "../DashboardResources/components/Card/CardFooter.js";
 import Table from "../DashboardResources/components/Table/Table.js";
 import CardBody from "../DashboardResources/components/Card/CardBody.js";
+import Avatar from '@material-ui/core/Avatar';
 import { EventsContext } from '../../Contexts/EventsContext.jsx';
 
 // import { bugs, website, server } from "../DashboardResources/variables/general.js";
 
 import styles from "../DashboardResources/assets/jss/material-dashboard-react/views/dashboardStyle.js";
+import sampleParent from '../../Components/sample_parent.jsx';
 
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 import moment from "moment";
+import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
 
 const useStyles = makeStyles(styles);
 const localizer = momentLocalizer(moment);
 
-const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique ullamcorper dapibus.
-Aliquam aliquam porttitor est, eget venenatis velit mattis ac. Ut porta mollis iaculis. Donec nec augue commodo,
-bibendum turpis ut, molestie ipsum. Curabitur consectetur, mauris id aliquet laoreet, risus lorem imperdiet ex,
-eu lacinia urna sapien in quam. Etiam dignissim dolor velit, sed posuere neque aliquam nec. Duis mi nisi, fermentum
-ac mi lobortis, accumsan efficitur dui. Ut semper posuere mi non aliquet. Quisque rutrum efficitur vestibulum.`;
-
-const kidPhoto = "https://trumpbundle.thekidsguide.com/masterfiles/x06-generic-hybrid-dt-ebk2009/images/GENERIC%20KID-3.png";
+const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique ullamcorper dapibus.`;
 
 const CounselorDashboard = () => {
-
+  const { user, camp } = useContext(LandingPageContext);
   const [readyToRender, setReadyToRender] = useState(true);
+  const [campers, setCampers] = useState([]);
   const { events, setEvents } = useContext(EventsContext);
   const classes = useStyles();
+
+  useEffect(() => {
+    for (let i = 0; i < sampleParent.length; i++) {
+      if (sampleParent[i].id === camp.id) {
+        for (let j = 0; j < sampleParent[i].parents.length; j++) {
+          for (let k = 0; k < sampleParent[i].parents[j].children.length; k++) {
+            if (sampleParent[i].parents[j].children[k].childId === user.campers[0]) {
+              let camperName = `${sampleParent[i].parents[j].children[k].firstName} ${sampleParent[i].parents[j].children[k].lastName}`;
+              let camperPhoto = sampleParent[i].parents[j].children[k].profileImageURL;
+              let camper = [(<img width="100px" src={camperPhoto} alt=""></img>), camperName];
+              setCampers(camper);
+              console.log(camper);
+            }
+          }
+        }
+      }
+    }
+  }, [camp.id, user]);
 
   var Dashboard = (
     <div>
@@ -47,18 +56,10 @@ const CounselorDashboard = () => {
         <GridItem xs={24} sm={12} md={6}>
           <Card>
             <CardHeader color="info" stats icon>
-              <CardIcon color="info">
-                <Accessibility />
-              </CardIcon>
-              <h3 className={classes.cardTitle}>Counselor&apos;s Name</h3>
+              <Avatar src={user.profileImageURL} style={{margin: 0, width: 80, height: 80}}/>
+              <h3 className={classes.cardTitle}>{user.firstName} {user.lastName}</h3>
               <p className={classes.cardCategory}>{loremIpsum}</p>
             </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Just Updated
-              </div>
-            </CardFooter>
           </Card>
         </GridItem>
       </GridContainer>
@@ -74,13 +75,8 @@ const CounselorDashboard = () => {
             <CardBody>
               <Table
                 tableHeaderColor="primary"
-                tableHead={["Photo", "Name", "Country", "City"]}
-                tableData={[
-                  [ (<img width="100px" src={kidPhoto}></img>), "Dakota Rice" , "Niger" , "Oud-Turnhout"] ,
-                  [ (<img width="100px" src={kidPhoto}></img>), "Minerva Hooper" , "Curaçao" , "Sinaai-Waas"] ,
-                  [ (<img width="100px" src={kidPhoto}></img>), "Sage Rodriguez" , "Netherlands" , "Baileux"] ,
-                  [ (<img width="100px" src={kidPhoto}></img>), "Philip Chaney" , "Korea, South" , "Overland Park"] ,
-              ]}
+                tableHead={["Photo", "Name"]}
+                tableData={[campers]}
               />
             </CardBody>
           </Card>
