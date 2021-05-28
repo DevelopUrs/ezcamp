@@ -7,13 +7,19 @@
 const retrieveParent = require('./retrieveParent.js');
 const retrieveCalendar = require('./retrieveCalendar.js');
 const retrieveForms = require('./retrieveForm.js');
+const validateLogin = require('./validateLogin.js');
 
 const insertParent = require('./insertParent.js');
+const insertCounselor = require('./insertCounselor.js');
+const insertChild = require('./insertChild');
 
 module.exports = {
   retrieveParent,
   retrieveCalendar,
   retrieveForm,
+  validateLogin,
 
   insertParent,
+  insertCounselor,
+  insertChild,
 };

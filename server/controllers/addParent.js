@@ -7,9 +7,5 @@ const hashPassword = require('../security/hash.js');
 const authentucate = require('../security/authenticate.js');
 
 module.exports = addParent = async (req, res) => {
-  const data = req.body;
-  initialize(data);
-  hashPassword(data);
-
-  insertParent(data, res);
+  insertParent(req.body, res);
 };
