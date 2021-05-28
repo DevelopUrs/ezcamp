@@ -15,7 +15,7 @@ const CampInfo = () => {
   return (
     <>
       <Grid container spacing={4}>
-        <Grid item xs={1}>
+        {/* <Grid item xs={1}>
           <Avatar>A</Avatar>
         </Grid>
         <Grid item xs={11}>
@@ -41,7 +41,7 @@ const CampInfo = () => {
           <Header>Our Counselors</Header>
           <Profile />
         </Grid>
-      </Grid>
+      </Grid> */}
 
       <Grid item xs={11}>
         <Header>{ camp.name }</Header>
@@ -55,6 +55,7 @@ const CampInfo = () => {
       </Grid>
       {counselors.map(counselor =>
         <Profile counselor={counselor}/>)}
+        </Grid>
     </>
   );
 };
