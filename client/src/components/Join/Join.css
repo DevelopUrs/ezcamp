@@ -41,14 +41,19 @@ body {
 
 .button {
   color: #fff !important;
+  font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
-  background: #2979ff;
-  padding: 20px;
+  background: #2ec4b6;
+  padding: 15px;
   border-radius: 5px;
   display: inline-block;
   border: none;
   width: 100%;
+}
+.button:hover {
+  background: #ff9f1c !important;
+  transition: 0.5s;
 }
 
 .mt-20 {
