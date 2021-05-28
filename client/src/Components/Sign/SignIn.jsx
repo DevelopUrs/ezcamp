@@ -64,10 +64,19 @@ export default function SignInSide() {
     for (let i = 0; i < sampleParent.length; i++) {
       if (sampleParent[i].id === camp.id) {
         for (let j = 0; j < sampleParent[i].parents.length; j++) {
+          //check if user is a parent
           if (sampleParent[i].parents[j].email === email) {
             getUserInfo(sampleParent[i].parents[j]);
             setProfile('Parent');
             setLandingPage('');
+          }
+          //check if user is a camper
+          for (let k = 0; k < sampleParent[i].parents[j].children.length; k++) {
+            if (sampleParent[i].parents[j].children[k].email === email) {
+              getUserInfo(sampleParent[i].parents[j]);
+              setProfile('Camper');
+              setLandingPage('');
+            }
           }
         }
       }

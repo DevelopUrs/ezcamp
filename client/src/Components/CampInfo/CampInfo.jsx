@@ -5,12 +5,9 @@ import { Header, Text } from './CampInfo.styles.jsx';
 import Profile from '../ProfileCard/editProfileCard.jsx';
 import Button from '@material-ui/core/Button';
 import { ModalContext } from '../../Contexts/ModalContext.jsx';
-//add LandingPage Context
-//add sampledata- counselor
 
 const CampInfo = () => {
   const {toggleCampAbout} = useContext(ModalContext);
-  //use LandingPage Context to use the camp and the user
 
   return (
     <>
@@ -19,7 +16,6 @@ const CampInfo = () => {
         <Avatar>A</Avatar>
       </Grid>
       <Grid item xs={11}>
-        {/* {campName} */}
         <Header>Adventure Kids Camp</Header>
       </Grid>
       <Grid item xs={12}>
