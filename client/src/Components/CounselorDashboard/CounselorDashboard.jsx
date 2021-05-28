@@ -42,7 +42,6 @@ const CounselorDashboard = () => {
               let camperPhoto = sampleParent[i].parents[j].children[k].profileImageURL;
               let camper = [(<img width="100px" src={camperPhoto} alt=""></img>), camperName];
               setCampers(camper);
-              console.log(camper);
             }
           }
         }
