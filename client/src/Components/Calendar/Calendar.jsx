@@ -3,14 +3,8 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Button from '@material-ui/core/Button';
 import { ModalContext } from '../../Contexts/ModalContext.jsx';
-import styled from 'styled-components';
 import { EventsContext } from '../../Contexts/EventsContext.jsx';
-// import styles from "../DashboardResources/assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import moment from "moment";
-
-const Container = styled.div`
-  z-index: 99;
-`;
 
 const localizer = momentLocalizer(moment);
 

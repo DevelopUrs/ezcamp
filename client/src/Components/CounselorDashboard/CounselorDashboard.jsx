@@ -8,15 +8,11 @@ import Table from "../DashboardResources/components/Table/Table.js";
 import CardBody from "../DashboardResources/components/Card/CardBody.js";
 import Avatar from '@material-ui/core/Avatar';
 import { EventsContext } from '../../Contexts/EventsContext.jsx';
-
-// import { bugs, website, server } from "../DashboardResources/variables/general.js";
-
 import styles from "../DashboardResources/assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import sampleParent from '../../Components/sample_parent.jsx';
-
+import sampleCounselor from '../../Components/sample_Counselor.jsx';
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-
 import moment from "moment";
 import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
 
@@ -29,24 +25,41 @@ const CounselorDashboard = () => {
   const { user, camp } = useContext(LandingPageContext);
   const [readyToRender, setReadyToRender] = useState(true);
   const [campers, setCampers] = useState([]);
-  const { events, setEvents } = useContext(EventsContext);
+  // const [campersArr, setCampersArr] = useState([]);
+  const { events } = useContext(EventsContext);
   const classes = useStyles();
 
   useEffect(() => {
-    for (let i = 0; i < sampleParent.length; i++) {
-      if (sampleParent[i].id === camp.id) {
-        for (let j = 0; j < sampleParent[i].parents.length; j++) {
-          for (let k = 0; k < sampleParent[i].parents[j].children.length; k++) {
-            if (sampleParent[i].parents[j].children[k].childId === user.campers[0]) {
-              let camperName = `${sampleParent[i].parents[j].children[k].firstName} ${sampleParent[i].parents[j].children[k].lastName}`;
-              let camperPhoto = sampleParent[i].parents[j].children[k].profileImageURL;
-              let camper = [(<img width="100px" src={camperPhoto} alt=""></img>), camperName];
-              setCampers(camper);
-              console.log(camper);
+    let campersArr;
+    for (let m = 0; m < sampleCounselor.length; m++) {
+      if (sampleCounselor[m].id === camp.id) {
+        for (let n = 0; n < sampleCounselor[m].counselors.length; n++) {
+          if (user.email === sampleCounselor[m].counselors[n].email) {
+            campersArr = sampleCounselor[m].counselors[n].campers;
+          }
+        }
+      }
+    }
+    let allCampers = [];
+    for (let i = 0; i < campersArr.length; i++) {
+      for (let j = 0; j < sampleParent.length; j++) {
+        if (sampleParent[j].id === camp.id) {
+          for (let k = 0; k < sampleParent[j].parents.length; k++) {
+            for (let l = 0; l < sampleParent[j].parents[k].children.length; l++) {
+              if (sampleParent[j].parents[k].children[l].childId === campersArr[i]) {
+                let currCamper = sampleParent[j].parents[k].children[l];
+                let camperName = `${currCamper.firstName} ${currCamper.lastName}`;
+                let camperPhoto = currCamper.profileImageURL;
+                let camper = [(<img width="100px" src={camperPhoto} alt=""></img>), camperName];
+                allCampers.push(camper);
+                // setCampers([...campers, camper]);
+              }
             }
           }
         }
       }
+      console.log(allCampers);
+      setCampers(allCampers);
     }
   }, [camp.id, user]);
 
@@ -76,7 +89,7 @@ const CounselorDashboard = () => {
               <Table
                 tableHeaderColor="primary"
                 tableHead={["Photo", "Name"]}
-                tableData={[campers]}
+                tableData={campers}
               />
             </CardBody>
           </Card>
