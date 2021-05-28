@@ -4,6 +4,7 @@ import { ModalContext } from '../../Contexts/ModalContext.jsx';
 import { EventsContext } from '../../Contexts/EventsContext.jsx';
 import Button from '@material-ui/core/Button';
 import { ModalWrapper, ModalBackdrop, ModalBox, CloseIcon, THead, Label, Form, Text } from './Modal.style.jsx';
+import $ from 'jquery';
 
 const CalendarEdit = () => {
   const [activity, setActivity] = useState({title: null, start: null, end: null});
@@ -27,7 +28,19 @@ const CalendarEdit = () => {
 
   const handleSubmit = (e) => {
     setEvents([...events, activity]);
+    addEvent(activity);
   }
+
+  const addEvent = (data) => {
+    $.ajax({
+      url: ,
+      type: 'POST',
+      data: data,
+      success: (msg) => console.log(msg),
+      error: (error) => console.log(error)
+    })
+  }
+
 
   return editCalendar ? (
     <ModalWrapper>
