@@ -19,6 +19,7 @@ import { Button } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import { FaCampground } from 'react-icons/fa';
 import FormatAlignCenterIcon from '@material-ui/icons/FormatAlignCenter';
+import Avatar from '@material-ui/core/Avatar';
 import ChatIcon from '@material-ui/icons/Chat';
 import styled from 'styled-components';
 import { DashboardContext } from '../../Contexts/DashboardContext.jsx';
@@ -93,7 +94,7 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const { setView } = useContext(DashboardContext);
-  const { setLandingPage, setProfile, camp } = React.useContext(LandingPageContext);
+  const { setLandingPage, setProfile, camp, user } = React.useContext(LandingPageContext);
 
   const campName = camp.name.toUpperCase();
 
@@ -152,6 +153,7 @@ export default function PersistentDrawerLeft() {
         }}
       >
         <div className={classes.drawerHeader}>
+        <Avatar src={user.profileImageURL} style={{'margin-right': '130px'}} />
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
