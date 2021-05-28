@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Grid from '@material-ui/core/Grid';
-import { Header, Text } from './CampInfo.styles.jsx';
-import Profile from '../ProfileCard/ProfileCard.jsx';
-import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
-import sampleCounselors from '../sample_Counselor.jsx';
+import React, { useContext, useState } from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Grid from "@material-ui/core/Grid";
+import { Header, Text } from "./CampInfo.styles.jsx";
+import Profile from "../ProfileCard/profileCard.jsx";
+import { LandingPageContext } from "../../Contexts/LandingPageContext.jsx";
+import sampleCounselors from "../sample_Counselor.jsx";
 
 const CampInfo = () => {
   const { camp } = useContext(LandingPageContext);
