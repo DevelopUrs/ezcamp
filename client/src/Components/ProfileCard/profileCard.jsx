@@ -8,6 +8,11 @@ import CardMedia from '@material-ui/core/CardMedia';
 // import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import Styled from 'styled-components';
+
+const Container = Styled.div`
+  margin: auto;
+`;
 
 const useStyles = makeStyles({
   root: {
@@ -18,12 +23,14 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard() {
+export default function MediaCard(props) {
   const classes = useStyles();
-  let img = 'https://images.unsplash.com/photo-1607277126387-0a1592dddfb6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=802&q=80';
+
+  let img = props.counselor.profileImageURL;
 
   return (
-    <Card className={classes.root}>
+    <Container>
+      <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -32,7 +39,7 @@ export default function MediaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Betty McArthur
+            {props.counselor.firstName + ' ' + props.counselor.lastName}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
           We are in the kid business. Our staff have a heart for reaching kids and building lasting relationships through sports camping. We desire to love, protect, serve, encourage, and challenge each kid who walks through the camp gates.
@@ -47,6 +54,7 @@ export default function MediaCard() {
           Learn More
         </Button>
       </CardActions> */}
-    </Card>
+      </Card>
+    </Container>
   );
 }
