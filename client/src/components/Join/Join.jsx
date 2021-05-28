@@ -12,7 +12,7 @@ export default function SignIn() {
       <div className="joinInnerContainer">
         <div>
           <input
-            placeholder="Name"
+            placeholder="Username"
             className="joinInput"
             type="text"
             onChange={(e) => setName(e.target.value)}

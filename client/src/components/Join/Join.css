@@ -30,6 +30,12 @@ body {
   border-radius: 0;
   padding: 15px 20px;
   width: 100%;
+  background-color: #1a1a1d;
+  color: white;
+  border: none;
+  border-bottom: 3px solid white;
+  font-weight: bold;
+  text-align: center;
 }
 
 .heading {
@@ -44,7 +50,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
-  background: #2ec4b6;
+  background: #e71d36;
   padding: 15px;
   border-radius: 5px;
   display: inline-block;
