@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Update from "@material-ui/icons/Update";
 import Accessibility from "@material-ui/icons/Accessibility";
@@ -11,6 +11,7 @@ import Card from "../DashboardResources/components/Card/Card.js";
 import CardHeader from "../DashboardResources/components/Card/CardHeader.js";
 import CardIcon from "../DashboardResources/components/Card/CardIcon.js";
 import CardFooter from "../DashboardResources/components/Card/CardFooter.js";
+import Avatar from '@material-ui/core/Avatar';
 
 import { bugs, website, server } from "../DashboardResources/variables/general.js";
 
@@ -20,20 +21,48 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 import moment from "moment";
+import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
+import sampleParent from '../../Components/sample_parent.jsx';
+import sampleCounselor from '../../Components/sample_Counselor.jsx';
 
 const useStyles = makeStyles(styles);
 const localizer = momentLocalizer(moment);
 
-const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique ullamcorper dapibus.
-Aliquam aliquam porttitor est, eget venenatis velit mattis ac. Ut porta mollis iaculis. Donec nec augue commodo,
-bibendum turpis ut, molestie ipsum. Curabitur consectetur, mauris id aliquet laoreet, risus lorem imperdiet ex,
-eu lacinia urna sapien in quam. Etiam dignissim dolor velit, sed posuere neque aliquam nec. Duis mi nisi, fermentum
-ac mi lobortis, accumsan efficitur dui. Ut semper posuere mi non aliquet. Quisque rutrum efficitur vestibulum.`;
+const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique ullamcorper dapibus.`;
 
 const CamperDashboard = () => {
-
+  const { user, camp, email } = useContext(LandingPageContext);
+  const [camper, setCamper] = useState({});
+  const [counselor, setCounselor] = useState({});
   const [readyToRender, setReadyToRender] = useState(true);
   const classes = useStyles();
+
+  useEffect(() => {
+    let currCounselor = 0;
+    for (let i = 0; i < sampleParent.length; i++) {
+      if (sampleParent[i].id === camp.id) {
+        for (let j = 0; j < sampleParent[i].parents.length; j++) {
+          if (sampleParent[i].parents[j].parentId === user.parentId) {
+            for (let k = 0; k < user.children.length; k++) {
+              if (user.children[k].email === email) {
+                currCounselor = user.children[k].counselor;
+                setCamper(user.children[k]);
+              }
+            }
+          }
+        }
+      }
+    }
+    for (let m = 0; m < sampleCounselor.length; m++) {
+      if (sampleCounselor[m].id === camp.id) {
+        for (let n = 0; n < sampleCounselor[m].counselors.length; n++) {
+          if (sampleCounselor[m].counselors[n].counselorId === currCounselor) {
+            setCounselor(sampleCounselor[m].counselors[n]);
+          }
+        }
+      }
+    }
+  }, [camp.id, email, user]);
 
   var Dashboard = (
     <div>
@@ -41,35 +70,26 @@ const CamperDashboard = () => {
         <GridItem xs={24} sm={12} md={6}>
           <Card>
             <CardHeader color="info" stats icon>
-              <CardIcon color="info">
-                <Accessibility />
-              </CardIcon>
-              <h3 className={classes.cardTitle}>Kid&apos;s Name</h3>
-              <p className={classes.cardCategory}>{loremIpsum}</p>
+            <Avatar src={camper.profileImageURL} style={{margin: 0, width: 80, height: 80}}/>
+              <h3 className={classes.cardTitle}>{camper.firstName} {camper.lastName}</h3>
+              <p className={classes.cardCategory}>
+                Parent: {user.firstName} {user.lastName}
+                Allergies: {camper.allergies}
+              </p>
             </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Just Updated
-              </div>
-            </CardFooter>
           </Card>
         </GridItem>
         <GridItem xs={24} sm={12} md={6}>
           <Card>
             <CardHeader color="info" stats icon>
-              <CardIcon color="info">
-                <Accessibility />
-              </CardIcon>
+            <Avatar src={counselor.profileImageURL} style={{margin: 0, width: 80, height: 80}}/>
               <h3 className={classes.cardTitle}>Assigned Counselor</h3>
-              <p className={classes.cardCategory}>{loremIpsum}</p>
+              <p className={classes.cardCategory}>
+                Name: {counselor.firstName} {counselor.lastName} <br />
+                Email: {counselor.email} <br />
+                Bio: {loremIpsum}
+              </p>
             </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Just Updated
-              </div>
-            </CardFooter>
           </Card>
         </GridItem>
       </GridContainer>

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-// import Avatar from '@material-ui/core/Avatar';
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -9,13 +8,13 @@ import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
 import logo from '../../../dist/logo.png';
 import Styled from 'styled-components';
-// import sampleParent from '../../Components/sample_parent.jsx';
+import sampleParent from '../../Components/sample_parent.jsx';
+import sampleCounselor from '../../Components/sample_Counselor.jsx';
 
 const Logo = Styled.img`
   height: 15%;
@@ -54,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignInSide() {
-  const { setLandingPage, email, setEmail, setProfile } = React.useContext(LandingPageContext);
+  const { setLandingPage, email, setEmail, setProfile, camp, getUserInfo } = React.useContext(LandingPageContext);
   const classes = useStyles();
 
   const createAccount = () => {
@@ -62,8 +61,37 @@ export default function SignInSide() {
   }
 
   const updateProfile = () => {
-    setLandingPage('');
-    setProfile(email);
+    for (let i = 0; i < sampleParent.length; i++) {
+      if (sampleParent[i].id === camp.id) {
+        for (let j = 0; j < sampleParent[i].parents.length; j++) {
+          //check if user is a parent
+          if (sampleParent[i].parents[j].email === email) {
+            getUserInfo(sampleParent[i].parents[j]);
+            setProfile('Parent');
+            setLandingPage('');
+          }
+          //check if user is a camper
+          for (let k = 0; k < sampleParent[i].parents[j].children.length; k++) {
+            if (sampleParent[i].parents[j].children[k].email === email) {
+              getUserInfo(sampleParent[i].parents[j]);
+              setProfile('Camper');
+              setLandingPage('');
+            }
+          }
+        }
+      }
+    }
+    for (let i = 0; i < sampleCounselor.length; i++) {
+      if (sampleCounselor[i].id === camp.id) {
+        for (let j = 0; j < sampleCounselor[i].counselors.length; j++) {
+          if (sampleCounselor[i].counselors[j].email === email) {
+            getUserInfo(sampleCounselor[i].counselors[j]);
+            setProfile('Counselor');
+            setLandingPage('');
+          }
+        }
+      }
+    }
   }
 
   const handleEmail = (e) => {
@@ -77,7 +105,6 @@ export default function SignInSide() {
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
             <Logo src={logo}></Logo>
-            {/* <LockOutlinedIcon /> */}
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
@@ -132,7 +159,6 @@ export default function SignInSide() {
               </Grid>
             </Grid>
             <Box mt={5}>
-              {/* <Copyright /> */}
             </Box>
           </form>
         </div>

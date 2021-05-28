@@ -1,29 +1,29 @@
-import React, { useContext } from "react";
-import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import { Button } from "@material-ui/core";
-import HomeIcon from "@material-ui/icons/Home";
-import { FaCampground } from "react-icons/fa";
-import FormatAlignCenterIcon from "@material-ui/icons/FormatAlignCenter";
-import ChatIcon from "@material-ui/icons/Chat";
-import styled from "styled-components";
-import { DashboardContext } from "../../Contexts/DashboardContext.jsx";
-import Dashboard from "../Dashboard/ParentDashboard.jsx";
-import { LandingPageContext } from "../../Contexts/LandingPageContext.jsx";
+import React, { useContext, useEffect } from 'react';
+import clsx from 'clsx';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import { Button } from '@material-ui/core';
+import HomeIcon from '@material-ui/icons/Home';
+import { FaCampground } from 'react-icons/fa';
+import FormatAlignCenterIcon from '@material-ui/icons/FormatAlignCenter';
+import ChatIcon from '@material-ui/icons/Chat';
+import styled from 'styled-components';
+import { DashboardContext } from '../../Contexts/DashboardContext.jsx';
+import Dashboard from '../Dashboard/ParentDashboard.jsx';
+import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
 
 const drawerWidth = 240;
 
@@ -62,7 +62,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: "flex-end",
   },
@@ -94,7 +93,9 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const { setView } = useContext(DashboardContext);
-  const { setLandingPage, setProfile } = React.useContext(LandingPageContext);
+  const { setLandingPage, setProfile, camp } = React.useContext(LandingPageContext);
+
+  const campName = camp.name.toUpperCase();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -134,7 +135,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            ADVENTURE KIDS CAMP
+            {campName}
           </Typography>
           <Btn>
             <Button onClick={handleLogOut}>Log Out</Button>

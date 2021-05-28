@@ -4,6 +4,7 @@ import Calendar from '../Calendar/Calendar.jsx';
 import Campers from '../Campers/Campers.jsx';
 import CounselorDashboard from '../CounselorDashboard/CounselorDashboard.jsx';
 import { DashboardContext } from '../../Contexts/DashboardContext.jsx';
+//import Chat component
 
 // import all pages that will need to be shown in Dashboard
 
@@ -16,6 +17,7 @@ const Dashboard = () => {
       {view === 'My Profile' ? <CounselorDashboard />
         : view === 'Campers' ? <Campers />
         : view === 'Calendar of Events' ? <Calendar />
+        // : view === 'Chat' ? <Chat />
         : <CampInfo />
       }
     </>
