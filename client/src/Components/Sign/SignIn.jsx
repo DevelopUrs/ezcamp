@@ -81,6 +81,7 @@ export default function SignInSide() {
         }
       }
     }
+    //check if user is a counselor
     for (let i = 0; i < sampleCounselor.length; i++) {
       if (sampleCounselor[i].id === camp.id) {
         for (let j = 0; j < sampleCounselor[i].counselors.length; j++) {

@@ -5,8 +5,6 @@ import { DashboardContext } from '../../Contexts/DashboardContext.jsx';
 import ParentForms from '../Forms/ParentForms.jsx';
 //import Chat component
 
-// import all pages that will need to be shown in Dashboard
-
 const Dashboard = () => {
   const { view } = useContext(DashboardContext);
 

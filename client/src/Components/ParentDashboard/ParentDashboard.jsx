@@ -8,8 +8,6 @@ import CustomTabs from "../DashboardResources/components/CustomTabs/CustomTabs.j
 import Card from "../DashboardResources/components/Card/Card.js";
 import CardHeader from "../DashboardResources/components/Card/CardHeader.js";
 import Avatar from '@material-ui/core/Avatar';
-// import CardIcon from "../DashboardResources/components/Card/CardIcon.js";
-// import CardFooter from "../DashboardResources/components/Card/CardFooter.js";
 import { EventsContext } from '../../Contexts/EventsContext.jsx';
 
 import { bugs, website, server } from "../DashboardResources/variables/general.js";

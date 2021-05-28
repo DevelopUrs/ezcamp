@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import Update from "@material-ui/icons/Update";
-import Accessibility from "@material-ui/icons/Accessibility";
 import Cloud from "@material-ui/icons/Cloud";
 import GridItem from "../DashboardResources/components/Grid/GridItem.js";
 import GridContainer from "../DashboardResources/components/Grid/GridContainer.js";
@@ -9,17 +7,11 @@ import Tasks from "../DashboardResources/components/Tasks/Tasks.js";
 import CustomTabs from "../DashboardResources/components/CustomTabs/CustomTabs.js";
 import Card from "../DashboardResources/components/Card/Card.js";
 import CardHeader from "../DashboardResources/components/Card/CardHeader.js";
-import CardIcon from "../DashboardResources/components/Card/CardIcon.js";
-import CardFooter from "../DashboardResources/components/Card/CardFooter.js";
 import Avatar from '@material-ui/core/Avatar';
-
 import { bugs, website, server } from "../DashboardResources/variables/general.js";
-
 import styles from "../DashboardResources/assets/jss/material-dashboard-react/views/dashboardStyle.js";
-
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-
 import moment from "moment";
 import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
 import sampleParent from '../../Components/sample_parent.jsx';
@@ -73,7 +65,7 @@ const CamperDashboard = () => {
             <Avatar src={camper.profileImageURL} style={{margin: 0, width: 80, height: 80}}/>
               <h3 className={classes.cardTitle}>{camper.firstName} {camper.lastName}</h3>
               <p className={classes.cardCategory}>
-                Parent: {user.firstName} {user.lastName}
+                Parent: {user.firstName} {user.lastName} <br />
                 Allergies: {camper.allergies}
               </p>
             </CardHeader>
