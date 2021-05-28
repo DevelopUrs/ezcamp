@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react';
-import Grid from '@material-ui/core/Grid';
-import { Header, Text } from '../CampInfo/CampInfo.styles.jsx';
-import { LandingPageContext } from '../../Contexts/LandingPageContext.jsx';
-import Profile from '../ProfileCard/ProfileCard.jsx';
-import sampleParent from '../../Components/sample_parent.jsx';
+import React, { useState, useContext } from "react";
+import Grid from "@material-ui/core/Grid";
+import { Header, Text } from "../CampInfo/CampInfo.styles.jsx";
+import { LandingPageContext } from "../../Contexts/LandingPageContext.jsx";
+import Profile from "../ProfileCard/profileCard.jsx";
+import sampleParent from "../../Components/sample_parent.jsx";
 
 const Campers = () => {
   // const { camp } = useContext(LandingPageContext);
@@ -23,15 +23,15 @@ const Campers = () => {
 
   return (
     <>
-    <Grid container spacing={4}>
-      <Grid item xs={12}>
-        <Header>Our Campers</Header>
-      </Grid>
-      {/* {campers.map((camper) =>
+      <Grid container spacing={4}>
+        <Grid item xs={12}>
+          <Header>Our Campers</Header>
+        </Grid>
+        {/* {campers.map((camper) =>
         <Profile camper={camper} />
       )} */}
-      {/* <Profile /> */}
-    </Grid>
+        {/* <Profile /> */}
+      </Grid>
     </>
   );
 };
