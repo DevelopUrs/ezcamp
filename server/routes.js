@@ -12,18 +12,17 @@ router.get('/parent/:email', getParent);
 
 router.get('/calendar/:campCode/:month', getCalendar);
 router.get('/counselors/:campCode', getCounselors);
-// router.get('/calendar');
-router.get('/form/:type/:email', getForms);
+// router.get('/form/:type/:email', getForms);
 
-router.post('/parent', addParent);
-// first name, last name, email, password
-router.post('/calendar', addEvent);
+// router.post('/parent', addParent);
+// // first name, last name, email, password
+// router.post('/calendar', addEvent);
 
-router.post('/counselors', addCounselor);
-// first name, last name, email, password
+// router.post('/counselors', addCounselor);
+// // first name, last name, email, password
 
-router.post('/child', addChild);
-router.post('/form', addForm);
+// router.post('/child', addChild);
+// router.post('/form', addForm);
 
 module.exports = router;
 
