@@ -76,7 +76,8 @@ const calendarSchema = mongoose.Schema({
     type: Number,
     enum: [1, 2]
   },
-  month: String,
+  // confirm with josh we don't need a month property
+  // month: String,
   activityName: String,
   start: Date,
   end: Date

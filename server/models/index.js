@@ -13,6 +13,7 @@ const insertParent = require('./insertParent.js');
 const insertCounselor = require('./insertCounselor.js');
 const insertChild = require('./insertChild.js');
 const insertEvent = require('./insertEvent.js');
+const insertForm = require('./insertForm.js');
 
 module.exports = {
   retrieveParent,
@@ -24,4 +25,5 @@ module.exports = {
   insertCounselor,
   insertChild,
   insertEvent,
+  insertForm,
 };

@@ -5,21 +5,23 @@
 const getParent = require('./getParent.js');
 const getCalendar = require('./getCalendar.js');
 const getForm = require('./getForm.js');
-const getLogin = require('./checkLogin.js');
+const getLogin = require('./getLogin.js');
 
 const addParent = require('./addParent.js');
 const addCounselor = require('./addCounselor.js');
 const addChild = require('./addChild.js');
 const addEvent = require('./addEvent.js');
+const addForm = require('./addForm.js');
 
 module.exports = {
   getParent,
   getCalendar,
   getForm,
-  checkLogin,
+  getLogin,
 
   addParent,
   addCounselor,
   addChild,
   addEvent,
+  addForm,
 };
