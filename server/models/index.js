@@ -5,7 +5,7 @@
 
 const retrieveParent = require('./retrieveParent.js');
 const retrieveCalendar = require('./retrieveCalendar.js');
-const retrieveForms = require('./retrieveForm.js');
+const retrieveForm = require('./retrieveForm.js');
 const validateLogin = require('./validateLogin.js');
 
 const insertParent = require('./insertParent.js');
@@ -14,7 +14,9 @@ const insertChild = require('./insertChild.js');
 const insertEvent = require('./insertEvent.js');
 const insertForm = require('./insertForm.js');
 
-const updateCampInfo = require('./updateCampInfo');
+const updateCampInfo = require('./updateCampInfo.js');
+const updateCounselorInfo = require('./updateCounselorInfo.js');
+const updateCalendarInfo = require('./updateCalendarInfo.js');
 
 module.exports = {
   retrieveParent,
@@ -29,4 +31,6 @@ module.exports = {
   insertForm,
 
   updateCampInfo,
+  updateCounselorInfo,
+  updateCalendarInfo,
 };

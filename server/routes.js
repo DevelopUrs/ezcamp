@@ -4,7 +4,7 @@ const router = express.Router();
 const { getParent, getCalendar, getForm, getLogin } = require('./controllers');
 const { addParent, addCounselor, addChild, addEvent, addForm } = require('./controllers');
 const { getCounselors } = require('./controllers/getCounselors.js');
-const { changeCampInfo } = require('./controllers');
+const { changeCampInfo, changeCounselorInfo, changeCalendarInfo } = require('./controllers');
 
 // get
 router.get('/parent/:email', getParent);
@@ -29,7 +29,8 @@ router.post('/form/add', addForm);
 // put/patch
 // takes in campCode, name, description
 router.put('/camp/:campCode', changeCampInfo);
-//
-// router.put('/counselor/:email', changeCounselorInfo);
+// takes in a firstName, lastName, profileImageURL, bio
+router.put('/counselor/:email', changeCounselorInfo);
+router.put('/calendar/:campCode', changeCalendarInfo);
 
 module.exports = router;

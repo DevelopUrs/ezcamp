@@ -14,6 +14,8 @@ const addEvent = require('./addEvent.js');
 const addForm = require('./addForm.js');
 
 const changeCampInfo = require('./changeCampInfo.js');
+const changeCounselorInfo = require('./changeCounselorInfo.js');
+const changeCalendarInfo = require('./changeCalendarInfo.js');
 
 module.exports = {
   getParent,
@@ -28,4 +30,6 @@ module.exports = {
   addForm,
 
   changeCampInfo,
+  changeCounselorInfo,
+  changeCalendarInfo,
 };
