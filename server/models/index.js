@@ -3,7 +3,6 @@
 // exports.helpful = require('./helpful.js');
 // exports.report = require('./report.js');
 
-// exports.retrieveParent = require('./retrieveParent.js');
 const retrieveParent = require('./retrieveParent.js');
 const retrieveCalendar = require('./retrieveCalendar.js');
 const retrieveForms = require('./retrieveForm.js');
@@ -14,6 +13,8 @@ const insertCounselor = require('./insertCounselor.js');
 const insertChild = require('./insertChild.js');
 const insertEvent = require('./insertEvent.js');
 const insertForm = require('./insertForm.js');
+
+const updateCampInfo = require('./updateCampInfo');
 
 module.exports = {
   retrieveParent,
@@ -26,4 +27,6 @@ module.exports = {
   insertChild,
   insertEvent,
   insertForm,
+
+  updateCampInfo,
 };
